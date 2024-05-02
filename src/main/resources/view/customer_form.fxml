@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" prefHeight="525.0" prefWidth="882.0" styleClass="bg-color-1" stylesheets="@../design/buttonStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.shop.controller.CustomerFormController">
+   <children>
+      <Label layoutX="201.0" layoutY="47.0" prefHeight="38.0" prefWidth="330.0" text="Glitchbusters Customer Manage" underline="true">
+         <font>
+            <Font name="Arial Bold" size="21.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.5450236966824645" endY="1.0" startX="0.5450236966824645" startY="0.2227488151658768">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.3825503355704698">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.8557046979865771">
+                     <color>
+                        <Color red="0.3815789520740509" green="0.3603801131248474" blue="0.3603801131248474" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.3815789520740509" green="0.3603801131248474" blue="0.3603801131248474" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <TextField fx:id="txtCusID" layoutX="42.0" layoutY="137.0" prefHeight="24.0" prefWidth="201.0" promptText="Customer id" />
+      <TextField fx:id="txtCusName" layoutX="267.0" layoutY="137.0" prefHeight="24.0" prefWidth="201.0" promptText="Customer name" />
+      <TextField fx:id="txtCusTele" layoutX="484.0" layoutY="137.0" prefHeight="24.0" prefWidth="201.0" promptText="Customer telephone" />
+      <Label layoutX="42.0" layoutY="121.0" text="Customer ID">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startX="0.6540284360189574">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.4000000059604645" green="1.0" blue="0.7028571367263794" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.9966442953020134">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.9966442953020134">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="267.0" layoutY="121.0" text="Customer Name">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startX="0.6540284360189574">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.4000000059604645" green="1.0" blue="0.7028571367263794" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.9966442953020134">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.9966442953020134">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="484.0" layoutY="121.0" text="Customer Number">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startX="0.6540284360189574">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.4000000059604645" green="1.0" blue="0.7028571367263794" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.9966442953020134">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.9966442953020134">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <JFXButton layoutX="571.0" layoutY="173.0" onAction="#btnAddCustomer" prefHeight="26.0" prefWidth="117.0" style="-fx-background-color: #233C4D;" text="Add Customer" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="18.0" fitWidth="16.0">
+               <image>
+                  <Image url="@../icon/icons8-add-properties-24.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="469.0" layoutY="173.0" onAction="#btnUpdateCustomer" prefHeight="27.0" prefWidth="94.0" style="-fx-background-color: #7FEE38;" text="Update" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="19.0" fitWidth="24.0">
+               <image>
+                  <Image url="@../icon/icons8-update-24.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="373.0" layoutY="173.0" onAction="#btnClearFields" prefHeight="27.0" prefWidth="83.0" style="-fx-background-color: #718149;" text="Clear" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="17.0" fitWidth="20.0">
+               <image>
+                  <Image url="@../icon/icons8-broom-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <TableView fx:id="tblCustomer" layoutX="12.0" layoutY="257.0" onMouseClicked="#getAllDetails" prefHeight="255.0" prefWidth="707.0">
+        <columns>
+          <TableColumn fx:id="ColID" prefWidth="147.0" text="Customer ID" />
+          <TableColumn fx:id="ColName" prefWidth="301.0" text="Customer Namme" />
+            <TableColumn fx:id="ColNumber" prefWidth="273.0" text="Customer Number" />
+        </columns>
+      </TableView>
+      <JFXButton layoutX="22.0" layoutY="14.0" onAction="#btnBackToHome" style="-fx-background-color: #D0E579;" text="Back">
+         <graphic>
+            <ImageView fitHeight="17.0" fitWidth="22.0">
+               <image>
+                  <Image url="@../icon/icons8-back-24.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

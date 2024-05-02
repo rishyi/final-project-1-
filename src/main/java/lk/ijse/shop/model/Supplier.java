@@ -1,0 +1,58 @@
+package lk.ijse.shop.model;
+
+public class Supplier {
+
+    private String id;
+    private String name;
+    private String telephone;
+    private String p_id;
+
+    public Supplier(String id, String name, String telephone, String p_id) {
+        this.id = id;
+        this.name = name;
+        this.telephone = telephone;
+        this.p_id = p_id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getP_id() {
+        return p_id;
+    }
+
+    public void setP_id(String p_id) {
+        this.p_id = p_id;
+    }
+
+    @Override
+    public String toString() {
+        return "Supplier{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", p_id='" + p_id + '\'' +
+                '}';
+    }
+}

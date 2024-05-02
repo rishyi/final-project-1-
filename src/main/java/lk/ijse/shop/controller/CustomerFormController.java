@@ -1,0 +1,140 @@
+package lk.ijse.shop.controller;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import lk.ijse.shop.Repository.CustomerRepo;
+import lk.ijse.shop.model.Customer;
+import lk.ijse.shop.model.ItemTm.CustomerTm;
+
+import javax.swing.event.ChangeListener;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
+
+public class CustomerFormController {
+
+    @FXML
+    private AnchorPane rootNode;
+
+    @FXML
+    private TableView<CustomerTm> tblCustomer;
+
+    @FXML
+    private TableColumn<?, ?> ColID;
+
+
+    @FXML
+    private TableColumn<?, ?> ColName;
+
+    @FXML
+    private TableColumn<?, ?> ColNumber;
+
+    @FXML
+    private TextField txtCusID;
+
+    @FXML
+    private TextField txtCusName;
+
+    @FXML
+    private TextField txtCusTele;
+
+    public void initialize() {
+        setCellValueFactory();
+        loadAllItems();
+    }
+
+    private void setCellValueFactory() {
+        ColID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        ColName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        ColNumber.setCellValueFactory(new PropertyValueFactory<>("phone"));
+    }
+
+    private void loadAllItems() {
+        ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
+
+        try {
+            List<Customer> customerList = CustomerRepo.findAll();
+            for (Customer customer : customerList) {
+                CustomerTm customerTm = new CustomerTm(
+                        customer.getId(),
+                        customer.getName(),
+                        customer.getTelephone()
+                );
+                obList.add(customerTm);
+            }
+            tblCustomer.setItems(obList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void btnAddCustomer(ActionEvent event) {
+        String cusID = txtCusID.getText();
+        String cusName = txtCusName.getText();
+        String cusTele = txtCusTele.getText();
+
+        if (cusID.isEmpty() || cusName.isEmpty()) {
+        new Alert(Alert.AlertType.ERROR,"Customer ID and Name cannot be empty").show();
+        return;
+        }
+
+        Customer customer = new Customer(cusID, cusName, cusTele);
+
+        try {
+            boolean isAded = CustomerRepo.addCustomer(customer);
+            if (isAded) {
+                new Alert(Alert.AlertType.CONFIRMATION,"Customer Added Successfully").show();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void btnBackToHome(ActionEvent event) throws IOException {
+        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/home_form.fxml"));
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Home Form");
+        stage.centerOnScreen();
+    }
+
+    @FXML
+    void btnClearFields(ActionEvent event) {
+        clearFields();
+    }
+    private void clearFields(){
+        txtCusID.clear();
+        txtCusName.clear();
+        txtCusTele.clear();
+    }
+
+    @FXML
+    void btnUpdateCustomer(ActionEvent event) {
+
+    }
+
+    public void getAllDetails(MouseEvent mouseEvent) {
+        tblCustomer.getSelectionModel().selectedItemProperty().addListener((obs,oldSelection,newSelection) -> {
+            if (newSelection != null) {
+                txtCusID.setText(newSelection.getId());
+                txtCusName.setText(newSelection.getName());
+                txtCusTele.setText(newSelection.getPhone());
+            }
+        });
+    }
+}

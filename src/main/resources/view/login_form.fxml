@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" prefHeight="319.0" prefWidth="683.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.shop.controller.LoginFormController">
+   <children>
+      <Label layoutX="407.0" layoutY="9.0" text="GLITCHBUSTERS" textFill="#a44b4b">
+         <font>
+            <Font name="System Bold Italic" size="31.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="326.0" fitWidth="369.0">
+         <image>
+            <Image url="@../icon/laptop-with-shop-cart-background-free-photo.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtUserId" layoutX="382.0" layoutY="68.0" prefHeight="26.0" prefWidth="281.0" promptText="userd id" style="-fx-background-color: D5DBDB;" />
+      <TextField fx:id="txtPassword" layoutX="382.0" layoutY="116.0" prefHeight="26.0" prefWidth="281.0" promptText="password" style="-fx-background-color: D5DBDB;" />
+      <Hyperlink layoutX="605.0" layoutY="288.0" onAction="#linkRegisterOnAction" prefHeight="24.0" prefWidth="64.0" text="Register" textOverrun="CLIP" />
+      <Hyperlink layoutX="540.0" layoutY="142.0" onAction="#btnForgetPassword" prefHeight="24.0" prefWidth="112.0" text="Forget password" visible="false" />
+      <Line endX="139.0" layoutX="508.0" layoutY="49.0" startX="-100.0" />
+      <JFXButton layoutX="502.0" layoutY="181.0" onAction="#btnOnLoginAction" prefHeight="32.0" prefWidth="76.0" style="-fx-background-color: #62C6C6;" text="Login" />
+   </children>
+</AnchorPane>
