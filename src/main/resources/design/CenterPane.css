@@ -11,7 +11,7 @@
 }
 
 .bg-color-1{
-    -fx-background-color: linear-gradient(to bottom right, #a76464, #000000);
+    -fx-background-color: linear-gradient(to bottom right, rgb(50, 85, 138), rgba(10, 10, 10, 0.93));
 }
 
 .btn-1{
@@ -30,7 +30,7 @@
 
 
 .btn-1:hover{
-    -fx-background-color: #fff;
+    -fx-background-color: #ffffff;
     -fx-text-fill: #000;
 }
 

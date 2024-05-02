@@ -38,4 +38,10 @@ public class HomeFormController {
     public void btnOrderManage(ActionEvent actionEvent) {
 
     }
+
+    public void btnDashBoard(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashboard_form.fxml"));
+        this.mainRootNod.getChildren().clear();
+        this.mainRootNod.getChildren().add(anchorPane);
+    }
 }

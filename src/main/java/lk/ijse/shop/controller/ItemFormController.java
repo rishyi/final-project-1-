@@ -117,16 +117,6 @@ public class ItemFormController {
     }
 
     @FXML
-    void btnBackToHome(ActionEvent event) throws IOException {
-        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/home_form.fxml"));
-        Scene scene = new Scene(rootNode);
-        Stage stage = (Stage) this.rootNode.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Home Form");
-        stage.centerOnScreen();
-    }
-
-    @FXML
     void itemSearchOnAction(ActionEvent event) throws SQLException {
         String itemCode = txtCode.getText();
 

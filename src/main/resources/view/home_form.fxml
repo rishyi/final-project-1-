@@ -6,22 +6,14 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="rootNode" prefHeight="648.0" prefWidth="1139.0" styleClass="bg-color-1" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.shop.controller.HomeFormController">
    <children>
-      <JFXButton layoutX="14.0" layoutY="14.0" onAction="#btnOnBackToLogin" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: #D0E579;" text="Back">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="22.0">
-               <image>
-                  <Image url="@../icon/icons8-back-24.png" />
-               </image>
-            </ImageView>
-         </graphic></JFXButton>
-      <AnchorPane layoutX="543.0" layoutY="22.0" prefHeight="27.0" prefWidth="72.0" style="-fx-background-color: #4CB0CB;">
+      <AnchorPane layoutX="971.0" layoutY="16.0" prefHeight="27.0" prefWidth="72.0" style="-fx-background-color: #4CB0CB;">
          <children>
             <ImageView fitHeight="25.0" fitWidth="28.0">
                <image>
@@ -31,7 +23,7 @@
             <Label fx:id="LblCustomerCount" layoutX="36.0" layoutY="5.0" text="53" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="625.0" layoutY="22.0" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #4CB0CB;">
+      <AnchorPane layoutX="1053.0" layoutY="16.0" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #4CB0CB;">
          <children>
             <ImageView fitHeight="25.0" fitWidth="22.0" layoutY="2.0">
                <image>
@@ -41,28 +33,61 @@
             <Label fx:id="LblItemCount" layoutX="33.0" layoutY="6.0" text="20" />
          </children>
       </AnchorPane>
-      <Label layoutX="132.0" layoutY="62.0" prefHeight="42.0" prefWidth="456.0" text="Welcome Glitchbusters Stock Manage System" textFill="WHITE" underline="true">
+      <Label layoutX="309.0" layoutY="9.0" prefHeight="42.0" prefWidth="522.0" text="Welcome Glitchbusters Stock Manage System" textOverrun="WORD_ELLIPSIS" underline="true">
          <font>
-            <Font name="System Bold" size="21.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="0.7298578199052133" startX="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.7894737124443054" green="0.7894737124443054" blue="0.3801169693470001" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
-      <AnchorPane fx:id="mainRootNod" layoutX="245.0" layoutY="139.0" prefHeight="525.0" prefWidth="882.0" styleClass="bg-color-1" stylesheets="@../design/CenterPane.css" />
-      <AnchorPane layoutX="14.0" layoutY="139.0" prefHeight="499.0" prefWidth="200.0" styleClass="bg-color-1" stylesheets="@../design/CenterPane.css">
+      <AnchorPane fx:id="mainRootNod" layoutX="224.0" layoutY="101.0" prefHeight="525.0" prefWidth="882.0" styleClass="bg-color-1" stylesheets="@../design/CenterPane.css" />
+      <AnchorPane layoutX="14.0" layoutY="101.0" prefHeight="525.0" prefWidth="198.0" styleClass="bg-color-1" stylesheets="@../design/MenuLine.css">
          <children>
-            <JFXButton layoutX="19.0" layoutY="59.0" onAction="#btnItemManage" prefHeight="42.0" prefWidth="163.0" styleClass="btn-1" stylesheets="@../design/buttonStyle.css" text="item manage" textFill="WHITE">
+            <JFXButton layoutX="18.0" layoutY="123.0" onAction="#btnItemManage" prefHeight="42.0" prefWidth="163.0" styleClass="btn-1" stylesheets="@../design/buttonStyle.css" text="item manage" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="19.0" layoutY="107.0" onAction="#btnCustomerManage" prefHeight="42.0" prefWidth="163.0" styleClass="btn-1" stylesheets="@../design/buttonStyle.css" text="custm manage" textFill="#e8e8e8">
+            <JFXButton layoutX="18.0" layoutY="171.0" onAction="#btnCustomerManage" prefHeight="42.0" prefWidth="163.0" styleClass="btn-1" stylesheets="@../design/buttonStyle.css" text="custm manage" textFill="#e8e8e8">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="19.0" layoutY="157.0" onAction="#btnOrderManage" prefHeight="42.0" prefWidth="163.0" styleClass="btn-1" stylesheets="@../design/buttonStyle.css" text="order manage" textFill="WHITE">
+            <JFXButton layoutX="18.0" layoutY="221.0" onAction="#btnOrderManage" prefHeight="42.0" prefWidth="163.0" styleClass="btn-1" stylesheets="@../design/buttonStyle.css" text="order manage" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+            </JFXButton>
+            <JFXButton layoutX="18.0" layoutY="77.0" onAction="#btnDashBoard" prefHeight="42.0" prefWidth="163.0" styleClass="btn-1" stylesheets="@../design/buttonStyle.css" text="Dash board " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="42.0" layoutY="470.0" onAction="#btnOnBackToLogin" prefHeight="34.0" prefWidth="116.0" style="-fx-background-color: #E14229;" text="Log Out">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="17.0" fitWidth="22.0">
+                     <image>
+                        <Image url="@../icon/icons8-back-24.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
          </children>
       </AnchorPane>

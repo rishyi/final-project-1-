@@ -104,16 +104,6 @@ public class CustomerFormController {
     }
 
     @FXML
-    void btnBackToHome(ActionEvent event) throws IOException {
-        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/home_form.fxml"));
-        Scene scene = new Scene(rootNode);
-        Stage stage = (Stage) this.rootNode.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Home Form");
-        stage.centerOnScreen();
-    }
-
-    @FXML
     void btnClearFields(ActionEvent event) {
         clearFields();
     }
