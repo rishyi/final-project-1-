@@ -115,6 +115,27 @@ public class CustomerFormController {
 
     @FXML
     void btnUpdateCustomer(ActionEvent event) {
+        String cusID = txtCusID.getText();
+        String cusName = txtCusName.getText();
+        String cusTele = txtCusTele.getText();
+
+        if (cusID.isEmpty() || cusName.isEmpty()) {
+            new Alert(Alert.AlertType.ERROR,"Customer ID and Name cannot be empty").show();
+        }
+        if (cusTele.isEmpty()) {
+            new Alert(Alert.AlertType.ERROR,"Customer Telephone Number cannot be empty").show();
+        }
+
+        Customer customer = new Customer(cusID, cusName, cusTele);
+
+        try {
+            boolean isUpdated = CustomerRepo.updateCustomer(customer);
+            if (isUpdated) {
+                new Alert(Alert.AlertType.CONFIRMATION,"Customer Updated Successfully").show();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
