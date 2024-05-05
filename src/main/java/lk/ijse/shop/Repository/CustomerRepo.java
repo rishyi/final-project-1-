@@ -55,4 +55,15 @@ public class CustomerRepo {
         }
         return customers;
     }
+    public static List<String> getIds() throws SQLException {
+        String sql = "SELECT c_id FROM CUSTOMER";
+        PreparedStatement preparedStatement = DbConnection.getInstance().getConnection().prepareStatement(sql);
+        List<String> idList = new ArrayList<>();
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+                String c_id = resultSet.getString(1);
+                idList.add(c_id);
+        }
+        return idList;
+    }
 }

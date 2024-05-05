@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ItemRepo {
     public static boolean save(Item item) throws SQLException {
-        String sql = "INSERT INTO item VALUES(?,?,?,?)";
+        String sql = "INSERT INTO item VALUES(?,?,?,?,?)";
 
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -20,12 +20,13 @@ public class ItemRepo {
         preparedStatement.setObject(2,item.getItemName());
         preparedStatement.setObject(3,item.getQtyOnHand());
         preparedStatement.setObject(4,item.getDetails());
+        preparedStatement.setObject(5,item.getUnitPrice());
 
         return preparedStatement.executeUpdate() > 0;
     }
 
     public static boolean update(Item item) throws SQLException {
-        String sql = "UPDATE item SET item_name = ?, qty_on_hand = ?, details = ? WHERE i_id = ?";
+        String sql = "UPDATE item SET item_name = ?, qty_on_hand = ?, details = ? , unit_price = ? WHERE i_id = ?";
 
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -34,6 +35,7 @@ public class ItemRepo {
         preparedStatement.setObject(2,item.getQtyOnHand());
         preparedStatement.setObject(3,item.getDetails());
         preparedStatement.setObject(4,item.getId());
+        preparedStatement.setObject(5,item.getUnitPrice());
 
         return preparedStatement.executeUpdate() > 0;
     }
@@ -51,8 +53,9 @@ public class ItemRepo {
             String name = resultSet.getNString(2);
             String qty = resultSet.getNString(3);
             String description = resultSet.getNString(4);
+            double unitPrice = resultSet.getDouble(5);
 
-            Item item = new Item(itemId,name,qty,description);
+            Item item = new Item(itemId,name,qty,description,unitPrice);
             return item;
         }
 
@@ -82,8 +85,9 @@ public class ItemRepo {
             String item_name = resultSet.getString(2);
             String qty_on_hand = resultSet.getString(3);
             String description = resultSet.getString(4);
+            double unit_price = resultSet.getDouble(5);
 
-            Item item = new Item(i_id,item_name,qty_on_hand,description);
+            Item item = new Item(i_id,item_name,qty_on_hand,description,unit_price);
             items.add(item);
         }
         return items;

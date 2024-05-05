@@ -8,12 +8,22 @@ public class ItemTm {
     private String itemName;
     private String qtyOnHand;
     private String details;
+    private double unitPrice;
 
-    public ItemTm(String id, String itemName, String qtyOnHand, String details) {
+    public ItemTm(String id, String itemName, String qtyOnHand, String details, double unitPrice) {
         this.id = id;
         this.itemName = itemName;
         this.qtyOnHand = qtyOnHand;
         this.details = details;
+        this.unitPrice = unitPrice;
+    }
+
+    public double getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(double unitPrice) {
+        this.unitPrice = unitPrice;
     }
 
     public String getId() {
@@ -55,6 +65,7 @@ public class ItemTm {
                 ", itemName='" + itemName + '\'' +
                 ", qtyOnHand='" + qtyOnHand + '\'' +
                 ", details='" + details + '\'' +
+                ", unitPrice=" + unitPrice +
                 '}';
     }
 }

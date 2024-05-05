@@ -13,7 +13,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="525.0" prefWidth="882.0" styleClass="bg-color-1" stylesheets="@../design/buttonStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.shop.controller.SupplierFormControll">
+<AnchorPane fx:id="rootNode" prefHeight="574.0" prefWidth="948.0" styleClass="bg-color-1" stylesheets="@../design/buttonStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.shop.controller.SupplierFormControll">
     <children>
         <Label layoutX="256.0" layoutY="14.0" prefHeight="38.0" prefWidth="393.0" text="Glitchbusters Supplier Manage" underline="true">
             <font>

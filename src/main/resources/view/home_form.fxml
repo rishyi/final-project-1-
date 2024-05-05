@@ -16,11 +16,11 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="648.0" prefWidth="1139.0" styleClass="bg-color-1" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.shop.controller.HomeFormController">
+<AnchorPane fx:id="rootNode" prefHeight="700.0" prefWidth="1200.0" styleClass="bg-color-1" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.shop.controller.HomeFormController">
    <children>
-      <AnchorPane fx:id="mainRootNod" layoutX="224.0" layoutY="101.0" prefHeight="525.0" prefWidth="882.0" styleClass="bg-color-1" stylesheets="@../design/CenterPane.css">
+      <AnchorPane fx:id="mainRootNod" layoutX="224.0" layoutY="101.0" prefHeight="574.0" prefWidth="948.0" styleClass="bg-color-1" stylesheets="@../design/CenterPane.css">
          <children>
-            <AnchorPane layoutX="32.0" layoutY="59.0" prefHeight="166.0" prefWidth="818.0" stylesheets="@../design/HomePageStyle.css">
+            <AnchorPane layoutX="65.0" layoutY="59.0" prefHeight="166.0" prefWidth="818.0" stylesheets="@../design/HomePageStyle.css">
                <styleClass>
                   <String fx:value="grey-bg" />
                   <String fx:value="shadow" />
@@ -38,7 +38,7 @@
                               <Image url="@../icon/icons8-crowd-50.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="199.0" layoutY="14.0" prefHeight="26.0" prefWidth="27.0" text="15" textFill="#ffe6e6">
+                        <Label fx:id="lblCustomerCount" layoutX="199.0" layoutY="14.0" prefHeight="26.0" prefWidth="27.0" text="15" textFill="#ffe6e6">
                            <font>
                               <Font name="System Bold" size="17.0" />
                            </font>
@@ -57,7 +57,7 @@
                               <Image url="@../icon/icons8-cube-50.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="202.0" layoutY="14.0" prefHeight="26.0" prefWidth="27.0" text="85" textFill="#ffe6e6">
+                        <Label fx:id="lblItemCount" layoutX="202.0" layoutY="14.0" prefHeight="26.0" prefWidth="27.0" text="85" textFill="#ffe6e6">
                            <font>
                               <Font name="System Bold" size="17.0" />
                            </font>
@@ -84,7 +84,7 @@
                      </children></AnchorPane>
                </children>
             </AnchorPane>
-            <Label layoutX="273.0" layoutY="4.0" prefHeight="45.0" prefWidth="337.0" text="Welcon Glitchbusters Home !!" underline="true">
+            <Label layoutX="306.0" layoutY="4.0" prefHeight="45.0" prefWidth="337.0" text="Welcon Glitchbusters Home !!" underline="true">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -105,7 +105,7 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <AnchorPane layoutX="32.0" layoutY="237.0" prefHeight="278.0" prefWidth="383.0" stylesheets="@../design/HomePageStyle.css">
+            <AnchorPane layoutX="65.0" layoutY="245.0" prefHeight="278.0" prefWidth="383.0" stylesheets="@../design/HomePageStyle.css">
                <styleClass>
                   <String fx:value="white-bg" />
                   <String fx:value="shadow" />
@@ -122,24 +122,36 @@
                </children>
             </AnchorPane>
          </children></AnchorPane>
-      <AnchorPane layoutX="14.0" layoutY="101.0" prefHeight="525.0" prefWidth="198.0" styleClass="bg-color-1" stylesheets="@../design/MenuLine.css">
+      <AnchorPane layoutX="14.0" layoutY="101.0" prefHeight="574.0" prefWidth="198.0" styleClass="bg-color-1" stylesheets="@../design/MenuLine.css">
          <children>
-            <JFXButton layoutX="18.0" layoutY="123.0" onAction="#btnItemManage" prefHeight="42.0" prefWidth="163.0" styleClass="btn-1" stylesheets="@../design/buttonStyle.css" text="item manage" textFill="WHITE">
+            <JFXButton layoutX="18.0" layoutY="123.0" onAction="#btnItemManage" prefHeight="42.0" prefWidth="163.0" stylesheets="@../design/buttonStyle.css" text="Item Manage" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+               <styleClass>
+                  <String fx:value="btn-1" />
+                  <String fx:value="shadow" />
+               </styleClass>
             </JFXButton>
-            <JFXButton layoutX="18.0" layoutY="171.0" onAction="#btnCustomerManage" prefHeight="42.0" prefWidth="163.0" styleClass="btn-1" stylesheets="@../design/buttonStyle.css" text="custm manage" textFill="#e8e8e8">
+            <JFXButton layoutX="18.0" layoutY="171.0" onAction="#btnCustomerManage" prefHeight="42.0" prefWidth="163.0" stylesheets="@../design/buttonStyle.css" text="Customer Manage" textFill="#e8e8e8">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+               <styleClass>
+                  <String fx:value="btn-1" />
+                  <String fx:value="shadow" />
+               </styleClass>
             </JFXButton>
-            <JFXButton layoutX="18.0" layoutY="221.0" onAction="#btnOrderManage" prefHeight="42.0" prefWidth="163.0" styleClass="btn-1" stylesheets="@../design/buttonStyle.css" text="order manage" textFill="WHITE">
+            <JFXButton layoutX="19.0" layoutY="272.0" onAction="#btnPlaceOrder" prefHeight="42.0" prefWidth="163.0" stylesheets="@../design/buttonStyle.css" text="Place Order" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+               <styleClass>
+                  <String fx:value="btn-1" />
+                  <String fx:value="shadow" />
+               </styleClass>
             </JFXButton>
-            <JFXButton layoutX="42.0" layoutY="470.0" onAction="#btnOnBackToLogin" prefHeight="34.0" prefWidth="116.0" style="-fx-background-color: #E14229;" text="Log Out">
+            <JFXButton layoutX="41.0" layoutY="518.0" onAction="#btnOnBackToLogin" prefHeight="34.0" prefWidth="116.0" style="-fx-background-color: #F30D0D;" styleClass="shadow" text="Log Out">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -151,21 +163,34 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton layoutX="19.0" layoutY="71.0" onAction="#btnHome" prefHeight="42.0" prefWidth="163.0" styleClass="btn-1" stylesheets="@../design/buttonStyle.css" text="home" textFill="WHITE">
+            <JFXButton layoutX="19.0" layoutY="75.0" onAction="#btnHome" prefHeight="42.0" prefWidth="163.0" stylesheets="@../design/buttonStyle.css" text="Home " textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+               <styleClass>
+                  <String fx:value="btn-1" />
+                  <String fx:value="shadow" />
+               </styleClass>
+            </JFXButton>
+            <JFXButton layoutX="19.0" layoutY="221.0" onAction="#btnSupplierManage" prefHeight="42.0" prefWidth="163.0" stylesheets="@../design/buttonStyle.css" text="Supplier Manage" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="btn-1" />
+                  <String fx:value="shadow" />
+               </styleClass>
             </JFXButton>
          </children>
       </AnchorPane>
-      <Line endX="981.0" layoutX="123.0" layoutY="90.0" startX="-106.0" stroke="#1fff06" />
-      <AnchorPane layoutX="15.0" layoutY="14.0" prefHeight="70.0" prefWidth="1091.0" stylesheets="@../design/HomePageStyle.css">
+      <Line endX="1051.0" layoutX="123.0" layoutY="90.0" startX="-106.0" stroke="#1fff06" />
+      <AnchorPane layoutX="15.0" layoutY="14.0" prefHeight="70.0" prefWidth="1162.0" stylesheets="@../design/HomePageStyle.css">
          <styleClass>
             <String fx:value="top-bg" />
             <String fx:value="shadow" />
          </styleClass>
          <children>
-            <Label layoutX="266.0" layoutY="14.0" prefHeight="43.0" prefWidth="560.0" text=" Glitchbusters Stock Manage System" textOverrun="WORD_ELLIPSIS">
+            <Label layoutX="350.0" layoutY="14.0" prefHeight="43.0" prefWidth="560.0" text=" Glitchbusters Stock Manage System" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="Britannic Bold" size="34.0" />
                </font>

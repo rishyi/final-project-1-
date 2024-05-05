@@ -26,6 +26,12 @@ import java.util.List;
 public class ItemFormController {
 
     @FXML
+    public TableColumn<?,?> colUnitPrice;
+
+    @FXML
+    public TextField txtUnitPrice;
+
+    @FXML
     private TableView<ItemTm> tblItem;
 
     @FXML
@@ -65,6 +71,7 @@ public class ItemFormController {
         colName.setCellValueFactory(new PropertyValueFactory<>("itemName"));
         colQty.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
         colDetails.setCellValueFactory(new PropertyValueFactory<>("details"));
+        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
     }
 
     private void loadAllItems() {
@@ -77,7 +84,8 @@ public class ItemFormController {
                         item.getId(),
                         item.getItemName(),
                         item.getQtyOnHand(),
-                        item.getDetails()
+                        item.getDetails(),
+                        item.getUnitPrice()
                 );
                 obList.add(itemTm);
             }
@@ -93,6 +101,7 @@ public class ItemFormController {
         String itemName = txtName.getText();
         String itemQty = txtQty.getText();
         String itemDescription = txtDescription.getText();
+        double itemUnitPrice = Double.parseDouble(txtUnitPrice.getText());
 
         if (itemCode.isEmpty() || itemName.isEmpty()) {
             new Alert(Alert.AlertType.ERROR, "Item code and name are required").show();
@@ -103,7 +112,7 @@ public class ItemFormController {
             return;
         }
 
-        Item item = new Item(itemCode, itemName, itemQty, itemDescription);
+        Item item = new Item(itemCode, itemName, itemQty, itemDescription, itemUnitPrice);
 
         try {
             boolean isSaved = ItemRepo.save(item);
@@ -126,6 +135,7 @@ public class ItemFormController {
             txtName.setText(item.getItemName());
             txtQty.setText(item.getQtyOnHand());
             txtDescription.setText(item.getDetails());
+            txtUnitPrice.setText(String.valueOf(item.getUnitPrice()));
         }else {
                 new Alert(Alert.AlertType.INFORMATION, "Item not found").show();
         }
@@ -138,13 +148,14 @@ public class ItemFormController {
         String itemName = txtName.getText();
         String itemQty = txtQty.getText();
         String itemDescription = txtDescription.getText();
+        double itemUnitPrice = Double.parseDouble(txtUnitPrice.getText());
 
         if (itemCode.isEmpty() || itemName.isEmpty() || itemQty.isEmpty() || itemDescription.isEmpty()) {
             new Alert(Alert.AlertType.ERROR, "Pleas Fill The Blanks").show();
             return;
         }
 
-        Item item = new Item(itemCode, itemName, itemQty, itemDescription);
+        Item item = new Item(itemCode, itemName, itemQty, itemDescription, itemUnitPrice);
 
         try {
             boolean isUpdated = ItemRepo.update(item);
@@ -176,6 +187,7 @@ public class ItemFormController {
         txtName.clear();
         txtQty.clear();
         txtDescription.clear();
+        txtUnitPrice.clear();
     }
 
     public void btnClearFields(ActionEvent actionEvent) {
@@ -189,6 +201,7 @@ public class ItemFormController {
                 txtName.setText(newSelection.getItemName());
                 txtQty.setText(newSelection.getQtyOnHand());
                 txtDescription.setText(newSelection.getDetails());
+                txtUnitPrice.setText(String.valueOf(newSelection.getUnitPrice()));
             }
         });
     }
