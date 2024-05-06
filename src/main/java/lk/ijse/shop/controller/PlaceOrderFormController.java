@@ -156,7 +156,7 @@ public class PlaceOrderFormController {
 
     private String generateNextOrderId(String currentID) {
         if (currentID != null) {
-            String[] split = currentID.split("0");
+            String[] split = currentID.split("");
             int idNum = Integer.parseInt(split[1]);
             return "0" + ++idNum;
         }
@@ -283,7 +283,7 @@ public class PlaceOrderFormController {
         try {
             Item item = ItemRepo.searchById(code);
             if (item != null){
-                lblCustomerName.setText(item.getItemName());
+                lblItemName.setText(item.getItemName());
                 lblQtyOnHand.setText(String.valueOf(item.getQtyOnHand()));
                 lblDetails.setText(item.getDetails());
                 lblUnitPrice.setText(String.valueOf(item.getUnitPrice()));

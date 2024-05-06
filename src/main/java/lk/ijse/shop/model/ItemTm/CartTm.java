@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class CartTm {
     private String itemCode;
     private String Name;
-    private int QtyOnHand;
+    private double QtyOnHand;
     private String details;
     private int UnitPrice;
     private int total;
