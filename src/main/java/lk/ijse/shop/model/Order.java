@@ -1,5 +1,7 @@
 package lk.ijse.shop.model;
 
+import java.sql.Date;
+
 public class Order {
         private String id;
         private String details;
@@ -11,6 +13,9 @@ public class Order {
                 this.details = details;
                 this.date = date;
                 this.c_id = c_id;
+        }
+
+        public Order(String orderID, String orderDetails, Date date, String cusId) {
         }
 
         public String getId() {

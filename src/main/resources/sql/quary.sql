@@ -7,11 +7,13 @@ create table customer(
 
 create table orders(
                        o_id varchar (20) primary key,
-                       details varchar(20),
+                       details varchar(100),
                        date date,
                        c_id varchar(20),
                        foreign key (c_id) references customer (c_id) on update cascade on delete cascade
 );
+//ALTER table orders
+  modify column details varchar(100);
 
 create table empolyee (
                           e_id varchar (20) primary key,
@@ -68,6 +70,8 @@ create table orderDetails(
                              o_id varchar (20),
                              i_id varchar (20),
                              details varchar (20),
+                             unit_price double precision,
+                             date date,
                              foreign key (o_id) references orders (o_id) on update cascade on delete cascade,
                              foreign key (i_id) references item (i_id) on update cascade on delete cascade
 );

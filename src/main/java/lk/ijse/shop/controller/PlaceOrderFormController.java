@@ -13,10 +13,14 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.shop.Repository.CustomerRepo;
 import lk.ijse.shop.Repository.ItemRepo;
 import lk.ijse.shop.Repository.OrderRepo;
+import lk.ijse.shop.Repository.PlaceOrderRepo;
+import lk.ijse.shop.model.*;
 import lk.ijse.shop.model.ItemTm.CartTm;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -225,22 +229,75 @@ public class PlaceOrderFormController {
 
     @FXML
     void btnPlaceOrderAction(ActionEvent event) {
+        String orderID = lblOrderID.getText();
+        String  orderDetails = lblDetails.getText();
+        Date date = Date.valueOf(lblOrderDate.getText());
+        String cusId = cmbCustomerID.getValue();
 
+        var order = new Order(orderID,orderDetails,date,cusId);
+
+        List<OrderDetail> odList = new ArrayList<>();
+
+        for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
+            CartTm tm = obList.get(i);
+
+            OrderDetail od = new OrderDetail(
+                orderID,
+                tm.getItemCode(),
+                tm.getQtyOnHand(),
+                tm.getUnitPrice()
+            );
+            odList.add(od);
+        }
+
+        PlaceOrder po = new PlaceOrder(order,odList);
+
+        try {
+            boolean isPlaced = PlaceOrderRepo.placeOrder(po);
+            if (isPlaced){
+                new Alert(Alert.AlertType.CONFIRMATION,"Order Placed");
+            }else {
+                new Alert(Alert.AlertType.WARNING,"Order Not Placed");
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
     }
 
     @FXML
     void cmbCustomerOnAction(ActionEvent event) {
+        String id = cmbCustomerID.getValue();
+        try {
+            Customer customer = CustomerRepo.searchById(id);
 
+            lblCustomerName.setText(customer.getName());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
     void cmbItemOnAction(ActionEvent event) {
+        String code = cmbItemID.getValue();
+
+        try {
+            Item item = ItemRepo.searchById(code);
+            if (item != null){
+                lblCustomerName.setText(item.getItemName());
+                lblQtyOnHand.setText(String.valueOf(item.getQtyOnHand()));
+                lblDetails.setText(item.getDetails());
+                lblUnitPrice.setText(String.valueOf(item.getUnitPrice()));
+            }
+            txtQty.requestFocus();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
     @FXML
     void txtQtyOnAction(ActionEvent event) {
-
+        btnAddCartToOnAction(event);
     }
 
 }
