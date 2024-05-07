@@ -116,4 +116,10 @@ public class HomeFormController {
         this.mainRootNod.getChildren().clear();
         this.mainRootNod.getChildren().add(anchorPane);
     }
+
+    public void btnPayement(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/payement_form.fxml"));
+        this.mainRootNod.getChildren().clear();
+        this.mainRootNod.getChildren().add(anchorPane);
+    }
 }

@@ -25,8 +25,8 @@ public class OrderRepo {
         PreparedStatement pstmt = DbConnection.getInstance().getConnection().prepareStatement(sql);
         pstmt.setString(1, order.getId());
         pstmt.setString(2,order.getDetails());
-        pstmt.setDate(3, Date.valueOf(order.getDate()));
-         pstmt.setString(4,order.getC_id());
+        pstmt.setDate(3,order.getDate());
+        pstmt.setString(4,order.getC_id());
 
          return pstmt.executeUpdate() > 0;
      }

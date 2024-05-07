@@ -15,7 +15,7 @@ public class OrderDetail {
     private int qty;
     private double unitPrice;
 
-    public OrderDetail(String orderID, String itemCode, double qtyOnHand, int unitPrice) {
+    public OrderDetail(String orderID, String itemCode, double qtyOnHand, double unitPrice) {
 
     }
 }

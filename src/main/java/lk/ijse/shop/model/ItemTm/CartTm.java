@@ -14,7 +14,7 @@ public class CartTm {
     private String Name;
     private double QtyOnHand;
     private String details;
-    private int UnitPrice;
-    private int total;
+    private double UnitPrice;
+    private double total;
     private JFXButton btnRemove;
 }

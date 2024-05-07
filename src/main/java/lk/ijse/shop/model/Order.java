@@ -5,17 +5,17 @@ import java.sql.Date;
 public class Order {
         private String id;
         private String details;
-        private String date;
+        private Date date;
         private String c_id;
 
-        public Order(String id, String details, String date, String c_id) {
-                this.id = id;
-                this.details = details;
-                this.date = date;
-                this.c_id = c_id;
-        }
-
-        public Order(String orderID, String orderDetails, Date date, String cusId) {
+        @Override
+        public String toString() {
+                return "Order{" +
+                        "id='" + id + '\'' +
+                        ", details='" + details + '\'' +
+                        ", date=" + date +
+                        ", c_id='" + c_id + '\'' +
+                        '}';
         }
 
         public String getId() {
@@ -34,11 +34,11 @@ public class Order {
                 this.details = details;
         }
 
-        public String getDate() {
+        public Date getDate() {
                 return date;
         }
 
-        public void setDate(String date) {
+        public void setDate(Date date) {
                 this.date = date;
         }
 
@@ -50,13 +50,10 @@ public class Order {
                 this.c_id = c_id;
         }
 
-        @Override
-        public String toString() {
-                return "Order{" +
-                        "id='" + id + '\'' +
-                        ", details='" + details + '\'' +
-                        ", date='" + date + '\'' +
-                        ", c_id='" + c_id + '\'' +
-                        '}';
+        public Order(String id, String details, Date date, String c_id) {
+                this.id = id;
+                this.details = details;
+                this.date = date;
+                this.c_id = c_id;
         }
 }

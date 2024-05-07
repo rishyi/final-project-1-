@@ -1,4 +1,4 @@
-package lk.ijse.shop.model;
+package lk.ijse.shop.model.ItemTm;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +10,7 @@ import java.sql.Date;
 @AllArgsConstructor
 @Data
 
-public class Payement {
+public class PaymentTm {
 
     private String id;
     private double price;

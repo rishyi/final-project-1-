@@ -106,11 +106,11 @@ public class PlaceOrderFormController {
     }
 
     private void setCellValueFactory() {
-        colAction.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
+        colItemCode.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
         colItemName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         colQtyOnHand.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
         colDetail.setCellValueFactory(new PropertyValueFactory<>("details"));
-        colTotal.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
+        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
         colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
     }
 
@@ -156,7 +156,7 @@ public class PlaceOrderFormController {
 
     private String generateNextOrderId(String currentID) {
         if (currentID != null) {
-            String[] split = currentID.split("");
+            String[] split = currentID.split("0");
             int idNum = Integer.parseInt(split[1]);
             return "0" + ++idNum;
         }
@@ -174,8 +174,8 @@ public class PlaceOrderFormController {
         String name = lblItemName.getText();
         int qty = Integer.parseInt(txtQty.getText());
         String details = lblDetails.getText();
-        int unitPrice = Integer.parseInt(lblUnitPrice.getText());
-        int total = qty * unitPrice;
+        double unitPrice = Double.parseDouble(lblUnitPrice.getText());
+        double total = qty * unitPrice;
         JFXButton btnRemove = new JFXButton("Remove");
         btnRemove.setCursor(Cursor.HAND);
 
@@ -222,7 +222,7 @@ public class PlaceOrderFormController {
     private void  calculateNetTotal(){
         int netTotal = 0;
         for (int i=0; i<tblOrderCart.getItems().size(); i++){
-            netTotal += (int)colTotal.getCellData(i);
+            netTotal += (double)colTotal.getCellData(i);
         }
         lblTotal.setText(String.valueOf(netTotal));
     }
