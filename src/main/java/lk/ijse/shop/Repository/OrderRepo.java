@@ -7,6 +7,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OrderRepo {
     public static String getCurrentId() throws SQLException {
@@ -29,5 +31,24 @@ public class OrderRepo {
         pstmt.setString(4,order.getC_id());
 
          return pstmt.executeUpdate() > 0;
+     }
+
+     public static List<Order> GetAll() throws SQLException {
+        String sql = "SELECT * FROM orders";
+
+        PreparedStatement pstmt = DbConnection.getInstance().getConnection().prepareStatement(sql);
+        ResultSet rs = pstmt.executeQuery();
+
+        List<Order> orders = new ArrayList<Order>();
+
+        while (rs.next()) {
+            String OrderId = rs.getString(1);
+            String Details = rs.getString(2);
+            Date date = rs.getDate(3);
+            String c_id = rs.getString(4);
+
+            orders.add(new Order(OrderId,Details,date,c_id));
+        }
+        return orders;
      }
 }

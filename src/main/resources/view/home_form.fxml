@@ -76,7 +76,7 @@
                               <Image url="@../icon/icons8-money-32.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="199.0" layoutY="14.0" prefHeight="26.0" prefWidth="27.0" text="26" textFill="#ffe6e6">
+                        <Label fx:id="lblOrderCount" layoutX="199.0" layoutY="14.0" prefHeight="26.0" prefWidth="27.0" text="26" textFill="#ffe6e6">
                            <font>
                               <Font name="System Bold" size="17.0" />
                            </font>

@@ -20,8 +20,11 @@ public class HomeFormController {
     public AnchorPane mainRootNod;
     public Label lblItemCount;
     public Label lblCustomerCount;
+    public Label lblOrderCount;
     private int customerCount;
     private int itemCount;
+    private int orderCount;
+
 
     public void initialize() {
         try {
@@ -34,8 +37,14 @@ public class HomeFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+        try {
+            orderCount = getOrderCount();
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
         setCustomerCount(customerCount);
         setItemCount(itemCount);
+        setOrderCount(orderCount);
     }
 
     private void setItemCount(int itemCount) {
@@ -50,6 +59,21 @@ public class HomeFormController {
 
         if (rs.next()) {
             return rs.getInt("item_count");
+        }
+        return 0;
+    }
+
+    private  void setOrderCount(int orderCount) {
+        lblOrderCount.setText(String.valueOf(orderCount));
+    }
+
+    private int getOrderCount() throws SQLException {
+        String sql = "select count(*) as order_count from orders";
+        PreparedStatement preparedStatement = DbConnection.getInstance().getConnection().prepareStatement(sql);
+        ResultSet rs = preparedStatement.executeQuery();
+
+        if (rs.next()) {
+            return rs.getInt("order_count");
         }
         return 0;
     }
@@ -123,7 +147,9 @@ public class HomeFormController {
         this.mainRootNod.getChildren().add(anchorPane);
     }
 
-    public void btnOrders(ActionEvent actionEvent) {
-
+    public void btnOrders(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/orders_form.fxml"));
+        this.mainRootNod.getChildren().clear();
+        this.mainRootNod.getChildren().add(anchorPane);
     }
 }

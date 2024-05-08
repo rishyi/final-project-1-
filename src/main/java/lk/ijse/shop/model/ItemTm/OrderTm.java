@@ -1,17 +1,19 @@
-package lk.ijse.shop.model;
+package lk.ijse.shop.model.ItemTm;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Date;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 
-public class Supplier {
+public class OrderTm {
     private String id;
-    private String name;
-    private String telephone;
-    private String description;
+    private String details;
+    private Date date;
+    private String c_id;
 
 }
