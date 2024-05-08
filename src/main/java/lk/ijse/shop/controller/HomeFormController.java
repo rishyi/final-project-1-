@@ -1,7 +1,9 @@
 package lk.ijse.shop.controller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -10,21 +12,50 @@ import javafx.stage.Stage;
 import lk.ijse.shop.db.DbConnection;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.ResourceBundle;
 
-public class HomeFormController {
+public class HomeFormController implements Initializable {
     public AnchorPane rootNode;
+
     public AnchorPane mainRootNod;
     public Label lblItemCount;
     public Label lblCustomerCount;
     public Label lblOrderCount;
+    public Label dateAndTime;
     private int customerCount;
     private int itemCount;
     private int orderCount;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        runTime();
+    }
+
+    public void runTime(){
+        new Thread(){
+            public void run() {
+                SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss a");
+                while (true) {
+                    try {
+                        Thread.sleep(1000);
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    Platform.runLater(() -> {
+                        dateAndTime.setText(format.format(new Date()));
+                    });
+                }
+            }
+        }.start();
+    }
 
     public void initialize() {
         try {
@@ -45,6 +76,7 @@ public class HomeFormController {
         setCustomerCount(customerCount);
         setItemCount(itemCount);
         setOrderCount(orderCount);
+
     }
 
     private void setItemCount(int itemCount) {

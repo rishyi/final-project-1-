@@ -11,6 +11,7 @@ public class OrderDetailRepo {
     public static boolean save(List<OrderDetail> odList) throws SQLException {
         for (OrderDetail od : odList) {
             boolean isSaved = save(od);
+            System.out.println("orderDetailSve"+isSaved);
             if (!isSaved) {
                 return false;
             }
@@ -19,7 +20,7 @@ public class OrderDetailRepo {
     }
 
     private static boolean save(OrderDetail od) throws SQLException {
-        String sql = "INSERT INTO orderDetails VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO orderdetails VALUES(?,?,?,?,?)";
         PreparedStatement ps = DbConnection.getInstance().getConnection().prepareStatement(sql);
 
         ps.setString(1,od.getOrderID());

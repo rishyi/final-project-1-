@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import lk.ijse.shop.Repository.PaymentRepo;
 import lk.ijse.shop.model.ItemTm.PaymentTm;
 import lk.ijse.shop.model.Order;
@@ -21,6 +22,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class PaymentFromController {
+    public static  String netTotal = "0";
+    public static String orderid ="" ;
 
     @FXML
     private TableColumn<?, ?> colPrice;
@@ -55,6 +58,12 @@ public class PaymentFromController {
     public void initialize() {
         setCellValuerFactory();
         loadAllPayments();
+        setamountnoid();
+    }
+
+    private void setamountnoid() {
+        txtOrderId.setText(orderid);
+        txtPrice.setText(netTotal);
     }
 
     private void setCellValuerFactory() {
@@ -100,6 +109,12 @@ public class PaymentFromController {
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+        int i = Integer.parseInt(netTotal);
+        System.out.println(i);
+        if (i != 0){
+            Stage stage = (Stage) rootNode.getScene().getWindow();
+            stage.close();
         }
     }
 

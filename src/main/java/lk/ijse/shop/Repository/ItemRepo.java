@@ -29,13 +29,12 @@ public class ItemRepo {
     public static boolean update(Item item) throws SQLException {
         String sql = "UPDATE item SET item_name = ?, qty_on_hand = ?, details = ? , unit_price = ? WHERE i_id = ?";
 
-        Connection connection = DbConnection.getInstance().getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        PreparedStatement preparedStatement = DbConnection.getInstance().getConnection().prepareStatement(sql);
 
-        preparedStatement.setObject(1,item.getItemName());
-        preparedStatement.setObject(2,item.getQtyOnHand());
-        preparedStatement.setObject(3,item.getDetails());
-        preparedStatement.setObject(4,item.getId());
+        preparedStatement.setObject(1,item.getId());
+        preparedStatement.setObject(2,item.getItemName());
+        preparedStatement.setObject(3,item.getQtyOnHand());
+        preparedStatement.setObject(4,item.getDetails());;
         preparedStatement.setObject(5,item.getUnitPrice());
 
         return preparedStatement.executeUpdate() > 0;

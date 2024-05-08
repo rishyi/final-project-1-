@@ -6,16 +6,22 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import lk.ijse.shop.Repository.CustomerRepo;
 import lk.ijse.shop.Repository.ItemRepo;
 import lk.ijse.shop.Repository.OrderRepo;
 import lk.ijse.shop.Repository.PlaceOrderRepo;
 import lk.ijse.shop.model.*;
 import lk.ijse.shop.model.ItemTm.CartTm;
+import lombok.SneakyThrows;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -34,6 +40,10 @@ public class PlaceOrderFormController {
 
     @FXML
     private JFXComboBox<String> cmbCustomerID;
+
+
+    @FXML
+    private TextField customerContactfield;
 
     @FXML
     private JFXComboBox<String> cmbItemID;
@@ -112,6 +122,7 @@ public class PlaceOrderFormController {
         colDetail.setCellValueFactory(new PropertyValueFactory<>("details"));
         colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
         colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
+        colAction.setCellValueFactory(new PropertyValueFactory<>("btnRemove"));
     }
 
     private void getItemId() {
@@ -157,10 +168,13 @@ public class PlaceOrderFormController {
     private String generateNextOrderId(String currentID) {
         if (currentID != null) {
             String[] split = currentID.split("");
-            int idNum = Integer.parseInt(split[1]);
-            return "0" + ++idNum;
+            int idNum = Integer.parseInt(split[3]);
+            String x = String.valueOf(idNum + 1);
+            split[3] = x;
+            String join = String.join("",split);
+            return join ;
         }
-        return "01";
+        return "O001";
     }
 
     private void setDate() {
@@ -178,21 +192,6 @@ public class PlaceOrderFormController {
         double total = qty * unitPrice;
         JFXButton btnRemove = new JFXButton("Remove");
         btnRemove.setCursor(Cursor.HAND);
-
-        btnRemove.setOnAction((e)  -> {
-            ButtonType yes = new ButtonType("Yes",ButtonBar.ButtonData.OK_DONE);
-            ButtonType no = new ButtonType("No",ButtonBar.ButtonData.CANCEL_CLOSE);
-
-            Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION,"Are you sure to remove",yes,no).showAndWait();
-
-            if(type.orElse(no)==yes){
-                int selectedIndex = tblOrderCart.getSelectionModel().getSelectedIndex();
-                obList.remove(selectedIndex);
-
-                tblOrderCart.refresh();
-                calculateNetTotal();
-            }
-        });
 
         for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
             if (code.equals(colItemCode.getCellData(i))){
@@ -214,6 +213,17 @@ public class PlaceOrderFormController {
         CartTm tm = new CartTm(code,name,qty,details,unitPrice,total,btnRemove);
         obList.add(tm);
 
+        for (int i = 0; i < obList.size(); i++) {
+            int x = i ;
+            obList.get(i).getBtnRemove().setStyle("-fx-background-color: rgba(175, 108, 108, 1)");
+            obList.get(i).getBtnRemove().setTextFill(Color.WHITE);
+            obList.get(i).getBtnRemove().setOnAction(actionEvent -> {
+                obList.remove(x);
+                calculateNetTotal();
+                tblOrderCart.refresh();
+            });
+        }
+
         tblOrderCart.setItems(obList);
         calculateNetTotal();
         txtQty.setText("");
@@ -227,41 +237,66 @@ public class PlaceOrderFormController {
         lblTotal.setText(String.valueOf(netTotal));
     }
 
+    @SneakyThrows
     @FXML
     void btnPlaceOrderAction(ActionEvent event) {
+
         String orderID = lblOrderID.getText();
         String  orderDetails = lblDetails.getText();
         Date date = Date.valueOf(lblOrderDate.getText());
         String cusId = cmbCustomerID.getValue();
 
-        var order = new Order(orderID,orderDetails,date,cusId);
+        ArrayList<OrderDetail> arrayList = new ArrayList<>();
+        Order order = new Order(orderID,orderDetails,date,cusId);
 
-        List<OrderDetail> odList = new ArrayList<>();
-
-        for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
-            CartTm tm = obList.get(i);
-
-            OrderDetail od = new OrderDetail(
-                orderID,
-                tm.getItemCode(),
-                tm.getQtyOnHand(),
-                tm.getUnitPrice()
-            );
-            odList.add(od);
+        for (int i = 0; i < obList.size(); i++) {
+            int qty = (int) obList.get(i).getQtyOnHand();
+            arrayList.add(new OrderDetail(orderID,obList.get(i).getItemCode(),obList.get(i).getDetails(),qty,obList.get(i).getUnitPrice()));
         }
 
-        PlaceOrder po = new PlaceOrder(order,odList);
-
-        try {
-            boolean isPlaced = PlaceOrderRepo.placeOrder(po);
-            if (isPlaced){
-                new Alert(Alert.AlertType.CONFIRMATION,"Order Placed");
-            }else {
-                new Alert(Alert.AlertType.WARNING,"Order Not Placed");
-            }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        PlaceOrder placeOrder = new PlaceOrder(order,arrayList);
+        boolean b = PlaceOrderRepo.placeOrder(placeOrder);
+        if (b){
+            new Alert(Alert.AlertType.INFORMATION,"Saved").show();
+            Stage stage =new Stage();
+            PaymentFromController.netTotal = lblTotal.getText();
+            PaymentFromController.orderid = lblOrderID.getText();
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/payement_form.fxml"))));
+            stage.show();
+        }else {
+            new Alert(Alert.AlertType.ERROR,"Save failed").show();
         }
+
+
+//
+//        var order = new Order(orderID,orderDetails,date,cusId);
+//
+//        List<OrderDetail> odList = new ArrayList<>();
+//
+//        for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
+//            CartTm tm = obList.get(i);
+//
+//            OrderDetail od = new OrderDetail(
+//                orderID,
+//                tm.getItemCode(),
+//                tm.getQtyOnHand(),
+//                tm.getUnitPrice()
+//            );
+//            odList.add(od);
+//        }
+//
+//        PlaceOrder po = new PlaceOrder(order,odList);
+//
+//        try {
+//            boolean isPlaced = PlaceOrderRepo.placeOrder(po);
+//            if (isPlaced){
+//                new Alert(Alert.AlertType.CONFIRMATION,"Order Placed");
+//            }else {
+//                new Alert(Alert.AlertType.WARNING,"Order Not Placed");
+//            }
+//        } catch (SQLException e) {
+//            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+//        }
     }
 
     @FXML
@@ -293,6 +328,18 @@ public class PlaceOrderFormController {
             throw new RuntimeException(e);
         }
 
+    }
+
+    @SneakyThrows
+    @FXML
+    void onCustomerContactTyping(KeyEvent event) {
+        String text = customerContactfield.getText();
+        List<Customer> all = CustomerRepo.findAll();
+        for (Customer customer : all) {
+            if (customer.getTelephone().equals(text)){
+                lblCustomerName.setText(customer.getName());
+            }
+        }
     }
 
     @FXML

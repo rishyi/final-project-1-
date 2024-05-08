@@ -26,6 +26,7 @@ public class PlaceOrderRepo {
             conn.rollback();
             return false;
         }catch (SQLException e) {
+            e.printStackTrace();
             conn.rollback();
             return false;
         }finally {

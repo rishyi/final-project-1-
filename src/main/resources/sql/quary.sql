@@ -68,8 +68,8 @@ create table orderDetails(
                              o_id varchar (20),
                              i_id varchar (20),
                              details varchar (20),
+                             qty int,
                              unit_price double precision,
-                             date date,
                              foreign key (o_id) references orders (o_id) on update cascade on delete cascade,
                              foreign key (i_id) references item (i_id) on update cascade on delete cascade
 );
@@ -108,3 +108,10 @@ INSERT INTO customer VALUES ('C007','Henrick','0712545668');
 INSERT INTO orders VALUES ('O001','HDD Seagate 1TB * 2','2023-05-12','C002');
 INSERT INTO orders VALUES ('O002','RX600 8GB * 1','2023-05-13','C004');
 INSERT INTO orders VALUES ('O003','Samsung 24inch IPS Monitor * 1','2023-05-13','C006');
+------------------------------------------------------------------------------------------
+
+INSERT INTO supplier VALUES ('S001','Danushka','0712546665','RAM and HARD drives');
+INSERT INTO supplier VALUES ('S002','Suneth','0763124556','Monitors');
+INSERT INTO supplier VALUES ('S003','Sahan','077143625','VGA cards');
+
+

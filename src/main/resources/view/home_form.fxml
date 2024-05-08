@@ -229,6 +229,10 @@
                   </LinearGradient>
                </textFill>
             </Label>
+            <Label fx:id="dateAndTime" layoutX="1000.0" layoutY="39.0" prefHeight="26.0" prefWidth="152.0" text="YYYY-MM-DD" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Label>
          </children>
       </AnchorPane>
    </children>
