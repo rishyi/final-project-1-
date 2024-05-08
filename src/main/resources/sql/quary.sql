@@ -7,7 +7,6 @@ create table customer(
 
 create table orders(
                        o_id varchar (20) primary key,
-                       details varchar(100),
                        date date,
                        c_id varchar(20),
                        foreign key (c_id) references customer (c_id) on update cascade on delete cascade
@@ -42,7 +41,6 @@ create table shelf(
 
 create table payement(
                          p_id varchar (20) primary key,
-                         details varchar(20),
                          price varchar (20),
                          date date,
                          o_id varchar (20),

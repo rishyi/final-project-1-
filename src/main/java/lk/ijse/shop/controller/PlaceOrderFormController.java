@@ -156,7 +156,7 @@ public class PlaceOrderFormController {
 
     private String generateNextOrderId(String currentID) {
         if (currentID != null) {
-            String[] split = currentID.split("0");
+            String[] split = currentID.split("");
             int idNum = Integer.parseInt(split[1]);
             return "0" + ++idNum;
         }
