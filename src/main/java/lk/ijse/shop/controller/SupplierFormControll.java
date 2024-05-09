@@ -103,9 +103,12 @@ public class SupplierFormControll {
             boolean isSaved = SupplierRepo.save(supplier);
             if (isSaved){
                 new Alert(Alert.AlertType.CONFIRMATION,"Supplier Added Successfully").show();
+                clearFields();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }finally {
+            loadAllSupplier();
         }
     }
 
@@ -132,6 +135,8 @@ public class SupplierFormControll {
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }finally {
+            loadAllSupplier();
         }
     }
 
@@ -157,9 +162,12 @@ public class SupplierFormControll {
             boolean isUpdated = SupplierRepo.update(supplier);
             if (isUpdated){
                 new Alert(Alert.AlertType.CONFIRMATION,"Supplier Updated Successfully").show();
+                clearFields();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }finally {
+            loadAllSupplier();
         }
 
     }

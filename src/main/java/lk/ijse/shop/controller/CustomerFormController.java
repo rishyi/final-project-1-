@@ -97,9 +97,12 @@ public class CustomerFormController {
             boolean isAded = CustomerRepo.addCustomer(customer);
             if (isAded) {
                 new Alert(Alert.AlertType.CONFIRMATION,"Customer Added Successfully").show();
+                clearFields();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }finally {
+            loadAllItems();
         }
     }
 
@@ -132,9 +135,12 @@ public class CustomerFormController {
             boolean isUpdated = CustomerRepo.updateCustomer(customer);
             if (isUpdated) {
                 new Alert(Alert.AlertType.CONFIRMATION,"Customer Updated Successfully").show();
+                clearFields();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }finally {
+            loadAllItems();
         }
 
     }

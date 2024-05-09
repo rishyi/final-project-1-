@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -27,6 +28,11 @@
       <Hyperlink layoutX="605.0" layoutY="288.0" onAction="#linkRegisterOnAction" prefHeight="24.0" prefWidth="64.0" text="Register" textOverrun="CLIP" />
       <Hyperlink layoutX="540.0" layoutY="142.0" onAction="#btnForgetPassword" prefHeight="24.0" prefWidth="112.0" text="Forget password" visible="false" />
       <Line endX="139.0" layoutX="508.0" layoutY="49.0" startX="-100.0" />
-      <JFXButton layoutX="502.0" layoutY="181.0" onAction="#btnOnLoginAction" prefHeight="32.0" prefWidth="76.0" style="-fx-background-color: #62C6C6;" text="Login" />
+      <JFXButton layoutX="502.0" layoutY="181.0" onAction="#btnOnLoginAction" prefHeight="32.0" prefWidth="76.0" stylesheets="@../design/buttonStyle.css" text="Login">
+         <styleClass>
+            <String fx:value="btn-1" />
+            <String fx:value="radius" />
+            <String fx:value="shadow" />
+         </styleClass></JFXButton>
    </children>
 </AnchorPane>

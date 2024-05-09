@@ -31,11 +31,11 @@ public class ItemRepo {
 
         PreparedStatement preparedStatement = DbConnection.getInstance().getConnection().prepareStatement(sql);
 
-        preparedStatement.setObject(1,item.getId());
-        preparedStatement.setObject(2,item.getItemName());
-        preparedStatement.setObject(3,item.getQtyOnHand());
-        preparedStatement.setObject(4,item.getDetails());;
-        preparedStatement.setObject(5,item.getUnitPrice());
+        preparedStatement.setObject(1,item.getItemName());
+        preparedStatement.setObject(2,item.getQtyOnHand());
+        preparedStatement.setObject(3,item.getDetails());
+        preparedStatement.setObject(4,item.getUnitPrice());
+        preparedStatement.setObject(5,item.getId());
 
         return preparedStatement.executeUpdate() > 0;
     }
@@ -109,7 +109,8 @@ public class ItemRepo {
         return itemIds;
     }
 
-    public static boolean update(List<OrderDetail> odList) throws SQLException {
+    public static boolean
+    update(List<OrderDetail> odList) throws SQLException {
         for (OrderDetail od : odList){
             boolean isUpdateQty = updateQty(od.getItemID(),od.getQty());
             if(!isUpdateQty){
@@ -120,7 +121,7 @@ public class ItemRepo {
     }
 
     private static boolean updateQty(String itemCode,int qty) throws SQLException {
-        String sql = "UPDATE item SET qty_on_hand = ? WHERE i_id = ?";
+        String sql = "UPDATE item SET qty_on_hand = qty_on_hand - ? WHERE i_id = ?";
 
         PreparedStatement preparedStatement = DbConnection.getInstance().getConnection().prepareStatement(sql);
         preparedStatement.setInt(1,qty);

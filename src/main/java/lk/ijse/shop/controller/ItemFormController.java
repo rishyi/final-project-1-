@@ -118,9 +118,12 @@ public class ItemFormController {
             boolean isSaved = ItemRepo.save(item);
             if (isSaved){
                 new Alert(Alert.AlertType.CONFIRMATION, "Item added successfully").show();
+                clearFields();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }finally {
+            loadAllItems();
         }
 
     }
@@ -160,10 +163,14 @@ public class ItemFormController {
         try {
             boolean isUpdated = ItemRepo.update(item);
             if (isUpdated) {
+                tblItem.refresh();
                 new Alert(Alert.AlertType.CONFIRMATION, "Item updated successfully").show();
-            }        
+                clearFields();
+            }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }finally {
+            loadAllItems();
         }
     }
 
@@ -174,10 +181,14 @@ public class ItemFormController {
         try {
             boolean isDeleted = ItemRepo.delete(itemCode);
             if (isDeleted) {
+
                 new Alert(Alert.AlertType.CONFIRMATION, "Item deleted successfully").show();
+                clearFields();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        } finally {
+            loadAllItems();
         }
 
     }

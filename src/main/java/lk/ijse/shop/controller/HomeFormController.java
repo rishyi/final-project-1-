@@ -35,29 +35,6 @@ public class HomeFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        runTime();
-    }
-
-    public void runTime(){
-        new Thread(){
-            public void run() {
-                SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss a");
-                while (true) {
-                    try {
-                        Thread.sleep(1000);
-
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    Platform.runLater(() -> {
-                        dateAndTime.setText(format.format(new Date()));
-                    });
-                }
-            }
-        }.start();
-    }
-
-    public void initialize() {
         try {
             customerCount = getCustomerCount();
         } catch (SQLException e) {
@@ -77,7 +54,28 @@ public class HomeFormController implements Initializable {
         setItemCount(itemCount);
         setOrderCount(orderCount);
 
+        runTime();
     }
+
+    public void runTime(){
+        new Thread(){
+            public void run() {
+                SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss a");
+                while (true) {
+                    try {
+                        Thread.sleep(1000);
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    Platform.runLater(() -> {
+                        dateAndTime.setText(format.format(new Date()));
+                    });
+                }
+            }
+        }.start();
+    }
+
 
     private void setItemCount(int itemCount) {
         lblItemCount.setText(String.valueOf(itemCount));

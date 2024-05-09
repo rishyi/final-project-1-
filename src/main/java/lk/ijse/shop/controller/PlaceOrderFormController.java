@@ -91,6 +91,10 @@ public class PlaceOrderFormController {
     @FXML
     private Label lblTotal;
 
+
+    @FXML
+    private Label lblCustomerID;
+
     @FXML
     private Label lblUnitPrice;
 
@@ -244,7 +248,7 @@ public class PlaceOrderFormController {
         String orderID = lblOrderID.getText();
         String  orderDetails = lblDetails.getText();
         Date date = Date.valueOf(lblOrderDate.getText());
-        String cusId = cmbCustomerID.getValue();
+        String cusId = lblCustomerID.getText();
 
         ArrayList<OrderDetail> arrayList = new ArrayList<>();
         Order order = new Order(orderID,orderDetails,date,cusId);
@@ -266,37 +270,6 @@ public class PlaceOrderFormController {
         }else {
             new Alert(Alert.AlertType.ERROR,"Save failed").show();
         }
-
-
-//
-//        var order = new Order(orderID,orderDetails,date,cusId);
-//
-//        List<OrderDetail> odList = new ArrayList<>();
-//
-//        for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
-//            CartTm tm = obList.get(i);
-//
-//            OrderDetail od = new OrderDetail(
-//                orderID,
-//                tm.getItemCode(),
-//                tm.getQtyOnHand(),
-//                tm.getUnitPrice()
-//            );
-//            odList.add(od);
-//        }
-//
-//        PlaceOrder po = new PlaceOrder(order,odList);
-//
-//        try {
-//            boolean isPlaced = PlaceOrderRepo.placeOrder(po);
-//            if (isPlaced){
-//                new Alert(Alert.AlertType.CONFIRMATION,"Order Placed");
-//            }else {
-//                new Alert(Alert.AlertType.WARNING,"Order Not Placed");
-//            }
-//        } catch (SQLException e) {
-//            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
-//        }
     }
 
     @FXML
@@ -338,6 +311,7 @@ public class PlaceOrderFormController {
         for (Customer customer : all) {
             if (customer.getTelephone().equals(text)){
                 lblCustomerName.setText(customer.getName());
+                lblCustomerID.setText(customer.getId());
             }
         }
     }

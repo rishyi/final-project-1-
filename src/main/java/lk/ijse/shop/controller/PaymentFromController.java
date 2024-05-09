@@ -106,6 +106,7 @@ public class PaymentFromController {
             boolean isSaved = PaymentRepo.save(payement);
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION,"Payment Successfully Added").show();
+                clearFields();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
