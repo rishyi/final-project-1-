@@ -22,7 +22,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class PaymentFromController {
-    public static  String netTotal = "0";
+    public static  String netTotal = "";
     public static String orderid ="" ;
 
     @FXML
@@ -139,9 +139,12 @@ public class PaymentFromController {
             boolean isDeleted = PaymentRepo.delete(paymentId);
             if (isDeleted) {
                 new Alert(Alert.AlertType.CONFIRMATION,"Payment Successfully Deleted").show();
+                clearFields();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }finally {
+            loadAllPayments();
         }
     }
 
@@ -167,9 +170,12 @@ public class PaymentFromController {
             boolean isUpdated = PaymentRepo.update(payement);
             if (isUpdated) {
                 new Alert(Alert.AlertType.CONFIRMATION,"Payment Successfully Updated").show();
+                clearFields();
             }
         } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }finally {
+            loadAllPayments();
         }
     }
 
