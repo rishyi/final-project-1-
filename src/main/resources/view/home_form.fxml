@@ -10,6 +10,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
@@ -124,33 +125,6 @@
          </children></AnchorPane>
       <AnchorPane layoutX="14.0" layoutY="101.0" prefHeight="574.0" prefWidth="198.0" styleClass="bg-color-1" stylesheets="@../design/MenuLine.css">
          <children>
-            <JFXButton layoutX="18.0" layoutY="123.0" onAction="#btnItemManage" prefHeight="42.0" prefWidth="163.0" stylesheets="@../design/buttonStyle.css" text="Item Manage" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="btn-1" />
-                  <String fx:value="shadow" />
-               </styleClass>
-            </JFXButton>
-            <JFXButton layoutX="18.0" layoutY="171.0" onAction="#btnCustomerManage" prefHeight="42.0" prefWidth="163.0" stylesheets="@../design/buttonStyle.css" text="Customer Manage" textFill="#e8e8e8">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="btn-1" />
-                  <String fx:value="shadow" />
-               </styleClass>
-            </JFXButton>
-            <JFXButton layoutX="18.0" layoutY="339.0" onAction="#btnPlaceOrder" prefHeight="42.0" prefWidth="163.0" stylesheets="@../design/buttonStyle.css" text="Place Order" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="btn-1" />
-                  <String fx:value="shadow" />
-               </styleClass>
-            </JFXButton>
             <JFXButton layoutX="41.0" layoutY="518.0" onAction="#btnOnBackToLogin" prefHeight="34.0" prefWidth="116.0" style="-fx-background-color: #F30D0D;" styleClass="shadow" text="Log Out">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -163,42 +137,73 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton layoutX="19.0" layoutY="75.0" onAction="#btnHome" prefHeight="42.0" prefWidth="163.0" stylesheets="@../design/buttonStyle.css" text="Home " textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="btn-1" />
-                  <String fx:value="shadow" />
-               </styleClass>
-            </JFXButton>
-            <JFXButton layoutX="19.0" layoutY="221.0" onAction="#btnSupplierManage" prefHeight="42.0" prefWidth="163.0" stylesheets="@../design/buttonStyle.css" text="Supplier Manage" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="btn-1" />
-                  <String fx:value="shadow" />
-               </styleClass>
-            </JFXButton>
-            <JFXButton layoutX="18.0" layoutY="279.0" onAction="#btnPayement" prefHeight="42.0" prefWidth="163.0" stylesheets="@../design/buttonStyle.css" text="Payement" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="btn-1" />
-                  <String fx:value="shadow" />
-               </styleClass>
-            </JFXButton>
-            <JFXButton layoutX="18.0" layoutY="396.0" onAction="#btnOrders" prefHeight="42.0" prefWidth="163.0" stylesheets="@../design/buttonStyle.css" text="Orders" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="btn-1" />
-                  <String fx:value="shadow" />
-               </styleClass>
-            </JFXButton>
+            <VBox layoutX="15.0" layoutY="153.0" prefHeight="303.0" prefWidth="169.0">
+               <children>
+                  <JFXButton onAction="#btnHome" prefHeight="42.0" prefWidth="163.0" stylesheets="@../design/buttonStyle.css" text="Home " textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="btn-1" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton onAction="#btnItemManage" prefHeight="42.0" prefWidth="163.0" stylesheets="@../design/buttonStyle.css" text="Item Manage" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="btn-1" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton onAction="#btnCustomerManage" prefHeight="42.0" prefWidth="163.0" stylesheets="@../design/buttonStyle.css" text="Customer Manage" textFill="#e8e8e8">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="btn-1" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton onAction="#btnSupplierManage" prefHeight="42.0" prefWidth="163.0" stylesheets="@../design/buttonStyle.css" text="Supplier Manage" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="btn-1" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton onAction="#btnPlaceOrder" prefHeight="42.0" prefWidth="163.0" stylesheets="@../design/buttonStyle.css" text="Place Order" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="btn-1" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton onAction="#btnPayement" prefHeight="42.0" prefWidth="163.0" stylesheets="@../design/buttonStyle.css" text="Payement" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="btn-1" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton onAction="#btnOrders" prefHeight="42.0" prefWidth="163.0" stylesheets="@../design/buttonStyle.css" text="Orders" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="btn-1" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </JFXButton>
+               </children>
+            </VBox>
          </children>
       </AnchorPane>
       <Line endX="1051.0" layoutX="123.0" layoutY="90.0" startX="-106.0" stroke="#1fff06" />
@@ -208,7 +213,7 @@
             <String fx:value="shadow" />
          </styleClass>
          <children>
-            <Label layoutX="350.0" layoutY="14.0" prefHeight="43.0" prefWidth="560.0" text=" Glitchbusters Stock Manage System" textOverrun="WORD_ELLIPSIS">
+            <Label layoutX="301.0" layoutY="14.0" prefHeight="43.0" prefWidth="560.0" text=" Glitchbusters Management System" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="Britannic Bold" size="34.0" />
                </font>

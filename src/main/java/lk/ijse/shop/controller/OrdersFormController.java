@@ -4,8 +4,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -18,6 +20,7 @@ import java.util.List;
 
 public class OrdersFormController {
 
+    public TextField txtOrderID;
     @FXML
     private TableColumn<?, ?> colCusId;
 
@@ -38,7 +41,11 @@ public class OrdersFormController {
 
     @FXML
     void getAllDetails(MouseEvent event) {
-
+        tblOrders.getSelectionModel().selectedItemProperty().addListener((obs,oldSelection,newSelection) -> {
+            if (newSelection != null) {
+                txtOrderID.setText(newSelection.getId());
+            }
+        });
     }
 
     public void initialize() {
@@ -75,6 +82,17 @@ public class OrdersFormController {
     }
 
     public void btnDeleteOrders(ActionEvent actionEvent) {
+            String OrderId = txtOrderID.getText();
 
+            try {
+                boolean isDeleted = OrderRepo.delete(OrderId);
+                if (isDeleted) {
+                    new Alert(Alert.AlertType.CONFIRMATION,"Order Deleted").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+            }finally {
+                loadAllOrders();
+            }
     }
 }

@@ -51,4 +51,14 @@ public class OrderRepo {
         }
         return orders;
      }
+
+     public static boolean delete(String id) throws SQLException {
+        String sql = "DELETE FROM orders WHERE o_id=?";
+
+        PreparedStatement pstmt = DbConnection.getInstance().getConnection().prepareStatement(sql);
+
+        pstmt.setString(1, id);
+
+        return pstmt.executeUpdate() > 0;
+     }
 }

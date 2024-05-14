@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -55,5 +56,6 @@
             </ImageView>
          </graphic>
       </JFXButton>
+      <TextField fx:id="txtOrderID" layoutX="332.0" layoutY="517.0" visible="false" />
     </children>
 </AnchorPane>
