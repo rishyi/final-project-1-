@@ -85,7 +85,7 @@
                      </children></AnchorPane>
                </children>
             </AnchorPane>
-            <Label layoutX="286.0" prefHeight="45.0" prefWidth="376.0" text="Welcon Glitchbusters Dashboard" underline="true">
+            <Label layoutX="275.0" prefHeight="45.0" prefWidth="398.0" text="Welcome Glitchbusters Dashboard" underline="true">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -137,7 +137,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <VBox layoutX="15.0" layoutY="153.0" prefHeight="303.0" prefWidth="169.0">
+            <VBox layoutX="15.0" layoutY="171.0" prefHeight="303.0" prefWidth="169.0">
                <children>
                   <JFXButton onAction="#btnHome" prefHeight="42.0" prefWidth="163.0" stylesheets="@../design/buttonStyle.css" text="Home " textFill="WHITE">
                      <font>
