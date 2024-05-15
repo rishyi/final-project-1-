@@ -2,8 +2,10 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import java.lang.String?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -34,5 +36,7 @@
             <String fx:value="radius" />
             <String fx:value="shadow" />
          </styleClass></JFXButton>
+      <PasswordField fx:id="txtPasswordField" layoutX="382.0" layoutY="117.0" prefHeight="25.0" prefWidth="281.0" promptText="Enter Password" style="-fx-background-color: D5DBDB;" />
+      <CheckBox fx:id="loginCheckBox" layoutX="382.0" layoutY="155.0" mnemonicParsing="false" onAction="#loginShowPassword" text="show password" />
    </children>
 </AnchorPane>

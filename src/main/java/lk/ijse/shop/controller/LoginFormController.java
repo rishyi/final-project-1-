@@ -5,8 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.shop.db.DbConnection;
@@ -22,6 +23,8 @@ public class LoginFormController {
     public TextField txtUserId;
     public TextField txtPassword;
     public AnchorPane rootNode;
+    public PasswordField txtPasswordField;
+    public CheckBox loginCheckBox;
 
     public void linkRegisterOnAction(ActionEvent actionEvent) throws IOException {
         Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/register_form.fxml"));
@@ -36,9 +39,17 @@ public class LoginFormController {
         String userId = txtUserId.getText();
         String password = txtPassword.getText();
 
+        if (!(loginCheckBox.isSelected())){
+            password = txtPasswordField.getText();
+        }else {
+            password = txtPassword.getText();
+        }
+
       try {
           checkCredintial(userId,password);
-      }catch (SQLException e){}
+      }catch (SQLException e){
+          new Alert(Alert.AlertType.ERROR,e.getMessage());
+      }
     }
 
     private void checkCredintial(String userId, String password) throws SQLException, IOException {
@@ -73,5 +84,18 @@ public class LoginFormController {
 
     public void btnForgetPassword(ActionEvent actionEvent) {
 
+    }
+
+    public void loginShowPassword(ActionEvent actionEvent) {
+        if (loginCheckBox.isSelected()) {
+            txtPassword.setText(txtPasswordField.getText());
+            txtPassword.setVisible(true);
+            txtPasswordField.setVisible(false);
+        }else {
+            txtPasswordField.setText(txtPassword.getText());
+            txtPassword.setVisible(false);
+            txtPasswordField.setVisible(true);
+
+        }
     }
 }
