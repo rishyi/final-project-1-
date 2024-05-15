@@ -13,30 +13,42 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="319.0" prefWidth="683.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.shop.controller.LoginFormController">
+<AnchorPane fx:id="rootNode" prefHeight="495.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.shop.controller.LoginFormController">
    <children>
-      <Label layoutX="407.0" layoutY="9.0" text="GLITCHBUSTERS" textFill="#a44b4b">
+      <ImageView fitHeight="495.0" fitWidth="761.0">
+         <image>
+            <Image url="@../icon/pexels-lmay-785429.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtUserId" layoutX="240.0" layoutY="145.0" prefHeight="26.0" prefWidth="281.0" promptText="userd id" style="-fx-background-color: D5DBDB;" />
+      <TextField fx:id="txtPassword" layoutX="241.0" layoutY="202.0" prefHeight="26.0" prefWidth="281.0" promptText="Password" style="-fx-background-color: D5DBDB;" />
+      <Hyperlink layoutX="456.0" layoutY="332.0" onAction="#linkRegisterOnAction" prefHeight="24.0" prefWidth="66.0" text="Register" textFill="#82b4ff" textOverrun="CLIP">
+         <font>
+            <Font size="13.0" />
+         </font></Hyperlink>
+      <Hyperlink layoutX="324.0" layoutY="205.0" onAction="#btnForgetPassword" prefHeight="24.0" prefWidth="112.0" text="Forget password" visible="false" />
+      <Line endX="219.0" layoutX="325.0" layoutY="64.0" startX="-100.0" stroke="#44ff00" />
+      <JFXButton layoutX="321.0" layoutY="278.0" onAction="#btnOnLoginAction" prefHeight="42.0" prefWidth="119.0" stylesheets="@../design/buttonStyle.css" text="Login">
+         <font>
+            <Font name="System Bold Italic" size="17.0" />
+         </font>
+         <styleClass>
+            <String fx:value="btn-1" />
+            <String fx:value="radius" />
+         </styleClass>
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="31.0">
+               <image>
+                  <Image url="@../icon/icons8-login-button-48.png" />
+               </image>
+            </ImageView>
+         </graphic></JFXButton>
+      <PasswordField fx:id="txtPasswordField" layoutX="241.0" layoutY="203.0" prefHeight="25.0" prefWidth="281.0" promptText="Password" style="-fx-background-color: D5DBDB;" />
+      <CheckBox fx:id="loginCheckBox" layoutX="238.0" layoutY="240.0" mnemonicParsing="false" onAction="#loginShowPassword" text="show password" textFill="WHITE" />
+      <Label layoutX="255.0" layoutY="14.0" prefHeight="58.0" prefWidth="281.0" text="GLITCHBUSTERS" textFill="#a44b4b">
          <font>
             <Font name="System Bold Italic" size="31.0" />
          </font>
       </Label>
-      <ImageView fitHeight="326.0" fitWidth="369.0">
-         <image>
-            <Image url="@../icon/laptop-with-shop-cart-background-free-photo.jpg" />
-         </image>
-      </ImageView>
-      <TextField fx:id="txtUserId" layoutX="382.0" layoutY="68.0" prefHeight="26.0" prefWidth="281.0" promptText="userd id" style="-fx-background-color: D5DBDB;" />
-      <TextField fx:id="txtPassword" layoutX="382.0" layoutY="116.0" prefHeight="26.0" prefWidth="281.0" promptText="password" style="-fx-background-color: D5DBDB;" />
-      <Hyperlink layoutX="605.0" layoutY="288.0" onAction="#linkRegisterOnAction" prefHeight="24.0" prefWidth="64.0" text="Register" textOverrun="CLIP" />
-      <Hyperlink layoutX="540.0" layoutY="142.0" onAction="#btnForgetPassword" prefHeight="24.0" prefWidth="112.0" text="Forget password" visible="false" />
-      <Line endX="139.0" layoutX="508.0" layoutY="49.0" startX="-100.0" />
-      <JFXButton layoutX="502.0" layoutY="181.0" onAction="#btnOnLoginAction" prefHeight="32.0" prefWidth="76.0" stylesheets="@../design/buttonStyle.css" text="Login">
-         <styleClass>
-            <String fx:value="btn-1" />
-            <String fx:value="radius" />
-            <String fx:value="shadow" />
-         </styleClass></JFXButton>
-      <PasswordField fx:id="txtPasswordField" layoutX="382.0" layoutY="117.0" prefHeight="25.0" prefWidth="281.0" promptText="Enter Password" style="-fx-background-color: D5DBDB;" />
-      <CheckBox fx:id="loginCheckBox" layoutX="382.0" layoutY="155.0" mnemonicParsing="false" onAction="#loginShowPassword" text="show password" />
    </children>
 </AnchorPane>
