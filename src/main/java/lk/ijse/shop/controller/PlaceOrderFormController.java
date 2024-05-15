@@ -21,7 +21,9 @@ import lk.ijse.shop.Repository.OrderRepo;
 import lk.ijse.shop.Repository.PlaceOrderRepo;
 import lk.ijse.shop.model.*;
 import lk.ijse.shop.model.ItemTm.CartTm;
+import lk.ijse.shop.model.ItemTm.CustomerTm;
 import lombok.SneakyThrows;
+import org.controlsfx.control.textfield.TextFields;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -117,6 +119,18 @@ public class PlaceOrderFormController {
         getCustomerId();
         getItemId();
         setCellValueFactory();
+        loadCustomerAllTel();
+    }
+
+    private void loadCustomerAllTel(){
+        try {
+            List<String> cusTel = CustomerRepo.getCustomerTelephone();
+            String[] posibleName =cusTel.toArray(new String[0]);
+
+            TextFields.bindAutoCompletion(customerContactfield,posibleName);
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK).show();
+        }
     }
 
     private void setCellValueFactory() {

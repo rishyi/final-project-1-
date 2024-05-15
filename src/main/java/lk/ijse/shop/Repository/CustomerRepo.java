@@ -85,4 +85,19 @@ public class CustomerRepo {
         }
         return null;
     }
+
+    public static List<String> getCustomerTelephone() throws SQLException {
+        String sql = "SELECT telephone FROM CUSTOMER";
+
+        PreparedStatement preparedStatement = DbConnection.getInstance().getConnection().prepareStatement(sql);
+
+        List<String> telephoneList = new ArrayList<>();
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+                String telephone = resultSet.getString(1);
+                telephoneList.add(telephone);
+        }
+        return telephoneList;
+    }
 }
