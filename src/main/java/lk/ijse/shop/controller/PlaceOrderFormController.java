@@ -192,7 +192,7 @@ public class PlaceOrderFormController {
             String join = String.join("",split);
             return join ;
         }
-        return "O001";
+        return "O00";
     }
 
     private void setDate() {

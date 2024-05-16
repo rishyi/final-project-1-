@@ -14,9 +14,18 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.shop.Repository.OrderRepo;
 import lk.ijse.shop.model.ItemTm.OrderTm;
 import lk.ijse.shop.model.Order;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class OrdersFormController {
 
@@ -94,5 +103,26 @@ public class OrdersFormController {
             }finally {
                 loadAllOrders();
             }
+    }
+
+    public void btnGetOrderBill(ActionEvent actionEvent) throws JRException, ClassNotFoundException, SQLException {
+        JasperDesign jasperDesign = JRXmlLoader.load(getClass().getResourceAsStream("/reports/Blank_A4.jrxml"));
+        JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+
+        Map<String, Object> parameters = new HashMap<>();
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/glitchbusters","root","satan666");
+        JRDesignQuery updateQuery = new JRDesignQuery();
+        String sql = "select * from orders";
+
+        jasperDesign.setQuery(updateQuery);
+        updateQuery.setText(sql);
+
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,null,connection);
+        JasperViewer.viewReport(jasperPrint,false);
+
+
+
+
     }
 }
