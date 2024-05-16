@@ -182,4 +182,10 @@ public class HomeFormController implements Initializable {
         this.mainRootNod.getChildren().clear();
         this.mainRootNod.getChildren().add(anchorPane);
     }
+
+    public void btnReports(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/reports_form.fxml"));
+        this.mainRootNod.getChildren().clear();
+        this.mainRootNod.getChildren().add(anchorPane);
+    }
 }

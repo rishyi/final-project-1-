@@ -42,9 +42,9 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="51" splitType="Stretch">
+		<band height="70" splitType="Stretch">
 			<staticText>
-				<reportElement x="150" y="0" width="283" height="40" uuid="ce3ed5db-d389-4c7d-be73-7732dc7b0967"/>
+				<reportElement mode="Transparent" x="150" y="0" width="283" height="40" uuid="ce3ed5db-d389-4c7d-be73-7732dc7b0967"/>
 				<textElement>
 					<font size="26" isBold="true"/>
 				</textElement>
@@ -59,28 +59,40 @@
 		<band height="38" splitType="Stretch">
 			<staticText>
 				<reportElement x="10" y="9" width="50" height="20" uuid="28197f5c-3a00-403d-8d44-47b41fb6378a"/>
-				<textElement>
+				<box padding="2">
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Order ID]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="160" y="9" width="56" height="20" uuid="6c0593aa-0970-4047-81cd-3aa1ad4a7a2b"/>
-				<textElement>
+				<reportElement x="160" y="9" width="60" height="20" uuid="6c0593aa-0970-4047-81cd-3aa1ad4a7a2b"/>
+				<box padding="2">
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Details]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="310" y="9" width="44" height="20" uuid="dae36992-081d-44a9-95f8-25f46fe1bcc4"/>
-				<textElement>
+				<box padding="2">
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Date]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="450" y="5" width="79" height="24" uuid="ad3c091c-ab49-493e-85f0-1ddc0675a1b6"/>
-				<textElement>
+				<box padding="2">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[customer ID]]></text>
@@ -88,7 +100,7 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="36" splitType="Stretch">
+		<band height="29" splitType="Stretch">
 			<textField>
 				<reportElement x="10" y="7" width="90" height="20" uuid="04493a1d-c0bd-4ea4-abad-aade2323aa79">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="abbf71b7-cec2-42aa-a14e-38012516b68e"/>
@@ -119,9 +131,17 @@
 		<band height="13" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="14" splitType="Stretch"/>
+		<band height="66" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="12" splitType="Stretch"/>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="10" width="380" height="20" uuid="c14618b6-e829-490b-b481-a8f44cb55f7f"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Total number of orders: Sum of all orders placed within a specified period.]]></text>
+			</staticText>
+		</band>
 	</summary>
 </jasperReport>

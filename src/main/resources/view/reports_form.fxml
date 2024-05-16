@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" prefHeight="574.0" prefWidth="948.0" styleClass="bg-color-1" stylesheets="@../../../../../final-project-1-/src/main/resources/design/CenterPane.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.shop.controller.RepotFormController">
+   <children>
+      <JFXButton layoutX="94.0" layoutY="73.0" onAction="#btnPrintAllOrders" prefHeight="60.0" prefWidth="159.0" styleClass="btn-1" stylesheets="@../../../../../final-project-1-/src/main/resources/design/buttonStyle.css" text="Orders Report">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="347.0" layoutY="73.0" onAction="#btnPrintAllcustomers" prefHeight="60.0" prefWidth="159.0" styleClass="btn-1" stylesheets="@../../../../../final-project-1-/src/main/resources/design/buttonStyle.css" text="Customer Report">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXTextArea layoutX="113.0" layoutY="200.0" prefHeight="322.0" prefWidth="697.0" style="-fx-background-color: #fff;" text="Thank you for choosing GlitchBusters as your go-to destination for all your technology needs since our inception in 2021. We are truly grateful for your continued support and trust in our products and services. At GlitchBusters, we strive to provide cutting-edge technology solutions, unparalleled customer service, and a seamless shopping experience to each and every one of our valued customers. As we move forward, we remain committed to exceeding your expectations and delivering innovative solutions that empower you in the digital world. Once again, thank you for being part of the GlitchBusters family. We look forward to serving you for many more years to come.">
+         <font>
+            <Font name="System Italic" size="19.0" />
+         </font>
+      </JFXTextArea>
+      <JFXButton layoutX="565.0" layoutY="73.0" onAction="#btnPrintAllItems" prefHeight="60.0" prefWidth="159.0" styleClass="btn-1" stylesheets="@../../../../../final-project-1-/src/main/resources/design/buttonStyle.css" text="Item Report">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

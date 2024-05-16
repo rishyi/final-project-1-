@@ -137,7 +137,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <VBox layoutX="15.0" layoutY="171.0" prefHeight="303.0" prefWidth="169.0">
+            <VBox layoutX="15.0" layoutY="119.0" prefHeight="345.0" prefWidth="169.0">
                <children>
                   <JFXButton onAction="#btnHome" prefHeight="42.0" prefWidth="163.0" stylesheets="@../design/buttonStyle.css" text="Home " textFill="WHITE">
                      <font>
@@ -194,6 +194,15 @@
                      </styleClass>
                   </JFXButton>
                   <JFXButton onAction="#btnOrders" prefHeight="42.0" prefWidth="163.0" stylesheets="@../design/buttonStyle.css" text="Orders" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="btn-1" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="262.0" onAction="#btnReports" prefHeight="42.0" prefWidth="163.0" stylesheets="@../design/buttonStyle.css" text="Reports" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
