@@ -51,7 +51,7 @@
 	<columnHeader>
 		<band height="40" splitType="Stretch">
 			<staticText>
-				<reportElement x="-3" y="10" width="110" height="20" uuid="c7cf541d-5596-4fef-b4ea-20e887eabc36"/>
+				<reportElement x="-3" y="10" width="153" height="20" uuid="c7cf541d-5596-4fef-b4ea-20e887eabc36"/>
 				<box padding="2">
 					<pen lineWidth="1.0" lineStyle="Solid"/>
 				</box>
@@ -61,7 +61,7 @@
 				<text><![CDATA[Customer ID]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="178" y="10" width="110" height="20" uuid="7228f7e6-42a8-4dbc-9ab5-eec7fd042dad"/>
+				<reportElement x="150" y="10" width="180" height="20" uuid="7228f7e6-42a8-4dbc-9ab5-eec7fd042dad"/>
 				<box padding="2">
 					<pen lineWidth="1.0" lineStyle="Solid"/>
 				</box>
@@ -71,7 +71,7 @@
 				<text><![CDATA[Customer Name]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="368" y="10" width="120" height="20" uuid="83a473d7-a945-45d9-8b96-33eedb73e8ab"/>
+				<reportElement x="330" y="10" width="158" height="20" uuid="83a473d7-a945-45d9-8b96-33eedb73e8ab"/>
 				<box padding="2">
 					<pen lineWidth="1.0" lineStyle="Solid"/>
 				</box>
@@ -103,7 +103,7 @@
 				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="370" y="0" width="110" height="30" uuid="0faaea17-3344-4db7-a8a8-c38ebe612d22">
+				<reportElement x="360" y="0" width="110" height="30" uuid="0faaea17-3344-4db7-a8a8-c38ebe612d22">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6230a0d2-4c90-49d7-856b-26ee1dc6d3b1"/>
 				</reportElement>
 				<textElement textAlignment="Center">

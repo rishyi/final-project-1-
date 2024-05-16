@@ -70,37 +70,45 @@
 				<reportElement x="0" y="0" width="95" height="30" uuid="a18f799c-27f4-4a99-a6b2-38fc0e2e3686">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ca617ce7-d8ff-40c8-91b7-c68dfac0fcf6"/>
 				</reportElement>
-				<box padding="6"/>
+				<box padding="6">
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
 				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Item ID]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="95" y="0" width="92" height="30" uuid="73dd9028-c071-4c75-8db0-9babc0f77051">
+				<reportElement x="95" y="0" width="106" height="30" uuid="73dd9028-c071-4c75-8db0-9babc0f77051">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a56870b6-3100-4d2f-9554-45f61591b4ef"/>
 				</reportElement>
-				<box padding="6"/>
+				<box padding="6">
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
 				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Item Name]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="193" y="0" width="92" height="30" uuid="036c2202-0ddb-478c-bbe9-eef9815024b1">
+				<reportElement x="201" y="0" width="127" height="30" uuid="036c2202-0ddb-478c-bbe9-eef9815024b1">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="795809df-90bb-46f6-be6a-97c93bd724ea"/>
 				</reportElement>
-				<box padding="6"/>
+				<box padding="6">
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
 				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Qty On Hand]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="328" y="0" width="92" height="30" uuid="86b8d598-83dd-466a-b593-f6265d9a0766">
+				<reportElement x="328" y="0" width="129" height="30" uuid="86b8d598-83dd-466a-b593-f6265d9a0766">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e8edfc09-205b-43e1-8c8a-104eb98f0a22"/>
 				</reportElement>
-				<box padding="6"/>
+				<box padding="6">
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
 				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
@@ -110,7 +118,9 @@
 				<reportElement x="457" y="0" width="92" height="30" uuid="1e6667e8-4e89-4786-bfce-a7a92c599655">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="016195b8-0893-4c56-9e0f-52f96012f6fb"/>
 				</reportElement>
-				<box padding="6"/>
+				<box padding="6">
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
 				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
@@ -130,7 +140,7 @@
 				<textFieldExpression><![CDATA[$F{i_id}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="96" y="-1" width="92" height="30" uuid="3521f60a-1636-441e-a438-5bf2c0437b00">
+				<reportElement x="98" y="-1" width="92" height="30" uuid="3521f60a-1636-441e-a438-5bf2c0437b00">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a56870b6-3100-4d2f-9554-45f61591b4ef"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -139,7 +149,7 @@
 				<textFieldExpression><![CDATA[$F{item_name}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="201" y="0" width="92" height="30" uuid="f49032ef-dd25-4126-93cf-d9050964a9c1">
+				<reportElement x="206" y="0" width="92" height="30" uuid="f49032ef-dd25-4126-93cf-d9050964a9c1">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="795809df-90bb-46f6-be6a-97c93bd724ea"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -148,7 +158,7 @@
 				<textFieldExpression><![CDATA[$F{qty_on_hand}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="322" y="0" width="112" height="20" uuid="c6e1c7c5-be90-4aae-8a51-65f009f0f8ad">
+				<reportElement x="324" y="0" width="112" height="20" uuid="c6e1c7c5-be90-4aae-8a51-65f009f0f8ad">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e8edfc09-205b-43e1-8c8a-104eb98f0a22"/>
 				</reportElement>
 				<textElement textAlignment="Center">

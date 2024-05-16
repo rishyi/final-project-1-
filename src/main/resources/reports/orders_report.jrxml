@@ -56,9 +56,9 @@
 		<band height="14" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="38" splitType="Stretch">
+		<band height="34" splitType="Stretch">
 			<staticText>
-				<reportElement x="10" y="9" width="50" height="20" uuid="28197f5c-3a00-403d-8d44-47b41fb6378a"/>
+				<reportElement x="10" y="9" width="110" height="20" uuid="28197f5c-3a00-403d-8d44-47b41fb6378a"/>
 				<box padding="2">
 					<pen lineWidth="1.0" lineStyle="Solid"/>
 				</box>
@@ -68,7 +68,7 @@
 				<text><![CDATA[Order ID]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="160" y="9" width="60" height="20" uuid="6c0593aa-0970-4047-81cd-3aa1ad4a7a2b"/>
+				<reportElement x="120" y="9" width="130" height="20" uuid="6c0593aa-0970-4047-81cd-3aa1ad4a7a2b"/>
 				<box padding="2">
 					<pen lineWidth="1.0" lineStyle="Solid"/>
 				</box>
@@ -78,7 +78,7 @@
 				<text><![CDATA[Details]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="310" y="9" width="44" height="20" uuid="dae36992-081d-44a9-95f8-25f46fe1bcc4"/>
+				<reportElement x="250" y="9" width="130" height="20" uuid="dae36992-081d-44a9-95f8-25f46fe1bcc4"/>
 				<box padding="2">
 					<pen lineWidth="1.0" lineStyle="Solid"/>
 				</box>
@@ -88,7 +88,7 @@
 				<text><![CDATA[Date]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="450" y="5" width="79" height="24" uuid="ad3c091c-ab49-493e-85f0-1ddc0675a1b6"/>
+				<reportElement x="380" y="9" width="149" height="20" uuid="ad3c091c-ab49-493e-85f0-1ddc0675a1b6"/>
 				<box padding="2">
 					<pen lineWidth="1.0"/>
 				</box>
@@ -102,27 +102,31 @@
 	<detail>
 		<band height="29" splitType="Stretch">
 			<textField>
-				<reportElement x="10" y="7" width="90" height="20" uuid="04493a1d-c0bd-4ea4-abad-aade2323aa79">
+				<reportElement x="25" y="7" width="76" height="20" uuid="04493a1d-c0bd-4ea4-abad-aade2323aa79">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="abbf71b7-cec2-42aa-a14e-38012516b68e"/>
 				</reportElement>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{o_id}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="160" y="7" width="100" height="20" uuid="72162886-b2bb-4a8b-bcd7-90012ac9fdc8">
+				<reportElement x="140" y="7" width="100" height="20" uuid="72162886-b2bb-4a8b-bcd7-90012ac9fdc8">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="46dc890d-6de0-459a-b41c-8dcb8a06684d"/>
 				</reportElement>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{details}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="310" y="7" width="100" height="20" uuid="f133bc50-752a-4749-b547-a1d9c821ac04">
+				<reportElement x="264" y="7" width="100" height="20" uuid="f133bc50-752a-4749-b547-a1d9c821ac04">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fd714fbc-63af-4998-85f3-6c85047a5748"/>
 				</reportElement>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="450" y="7" width="95" height="20" uuid="420cb5df-3dc9-4817-b4ac-908815c75a6a">
+				<reportElement x="402" y="7" width="95" height="20" uuid="420cb5df-3dc9-4817-b4ac-908815c75a6a">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b3748a1d-6ba1-4230-9dc2-32bf7151a7ca"/>
 				</reportElement>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{c_id}]]></textFieldExpression>
 			</textField>
 		</band>
@@ -134,9 +138,9 @@
 		<band height="66" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="45" splitType="Stretch">
+		<band height="84" splitType="Stretch">
 			<staticText>
-				<reportElement x="80" y="10" width="380" height="20" uuid="c14618b6-e829-490b-b481-a8f44cb55f7f"/>
+				<reportElement x="80" y="60" width="380" height="20" uuid="c14618b6-e829-490b-b481-a8f44cb55f7f"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
