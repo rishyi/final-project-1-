@@ -11,10 +11,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.shop.Repository.CustomerRepo;
+import lk.ijse.shop.Util.Regex;
 import lk.ijse.shop.model.Customer;
 import lk.ijse.shop.model.ItemTm.CustomerTm;
 
@@ -91,6 +93,7 @@ public class CustomerFormController {
         return;
         }
 
+        if (isValid()){
         Customer customer = new Customer(cusID, cusName, cusTele);
 
         try {
@@ -103,6 +106,9 @@ public class CustomerFormController {
             throw new RuntimeException(e);
         }finally {
             loadAllItems();
+        }
+        }else {
+            new Alert(Alert.AlertType.INFORMATION,"Not match insert types").show();
         }
     }
 
@@ -153,5 +159,25 @@ public class CustomerFormController {
                 txtCusTele.setText(newSelection.getPhone());
             }
         });
+    }
+
+    public void txtCustomerIdOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.shop.Util.TextField.ID,txtCusID);
+    }
+
+    public void txtCustomerNameOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.shop.Util.TextField.NAME,txtCusName);
+    }
+
+    public void txtCustomerTeleOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.shop.Util.TextField.TELEPHONE,txtCusTele);
+    }
+
+    public boolean isValid(){
+        if (!Regex.setTextColor(lk.ijse.shop.Util.TextField.ID,txtCusID)) return false;
+        if (!Regex.setTextColor(lk.ijse.shop.Util.TextField.NAME,txtCusName)) return false;
+        if (!Regex.setTextColor(lk.ijse.shop.Util.TextField.TELEPHONE,txtCusTele)) return false;
+
+        return true;
     }
 }

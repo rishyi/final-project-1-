@@ -43,7 +43,7 @@
                </image>
             </ImageView>
          </graphic></JFXButton>
-      <PasswordField fx:id="txtPasswordField" layoutX="241.0" layoutY="203.0" prefHeight="25.0" prefWidth="281.0" promptText="Password" style="-fx-background-color: D5DBDB;" />
+      <PasswordField fx:id="txtPasswordField" layoutX="241.0" layoutY="202.0" prefHeight="26.0" prefWidth="281.0" promptText="Password" style="-fx-background-color: D5DBDB;" />
       <CheckBox fx:id="loginCheckBox" layoutX="238.0" layoutY="240.0" mnemonicParsing="false" onAction="#loginShowPassword" text="show password" textFill="WHITE" />
       <Label layoutX="255.0" layoutY="14.0" prefHeight="58.0" prefWidth="281.0" text="GLITCHBUSTERS" textFill="#a44b4b">
          <font>

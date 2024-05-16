@@ -36,19 +36,19 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <TextField fx:id="txtCode" layoutX="107.0" layoutY="80.0" onAction="#itemSearchOnAction" prefHeight="25.0" prefWidth="236.0" promptText="Item Code">
+      <TextField fx:id="txtCode" layoutX="107.0" layoutY="80.0" onAction="#itemSearchOnAction" onKeyReleased="#txtItemCodeOnkey" prefHeight="25.0" prefWidth="236.0" promptText="Item Code">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></TextField>
-      <TextField fx:id="txtName" layoutX="367.0" layoutY="80.0" prefHeight="25.0" prefWidth="236.0" promptText="Item Name">
+      <TextField fx:id="txtName" layoutX="367.0" layoutY="80.0" onKeyReleased="#txtItemNameOnKey" prefHeight="25.0" prefWidth="236.0" promptText="Item Name">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></TextField>
-      <TextField fx:id="txtQty" layoutX="628.0" layoutY="80.0" prefHeight="13.0" prefWidth="236.0" promptText="Quantity">
+      <TextField fx:id="txtQty" layoutX="628.0" layoutY="80.0" onKeyReleased="#txtItemQtyOnKey" prefHeight="13.0" prefWidth="236.0" promptText="Quantity">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></TextField>
-      <TextField fx:id="txtDescription" layoutX="223.0" layoutY="128.0" prefHeight="25.0" prefWidth="236.0" promptText="Details">
+      <TextField fx:id="txtDescription" layoutX="223.0" layoutY="128.0" onKeyReleased="#txtItemDetailOnKey" prefHeight="25.0" prefWidth="236.0" promptText="Details">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></TextField>
@@ -193,7 +193,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <TextField fx:id="txtUnitPrice" layoutX="485.0" layoutY="128.0" prefHeight="25.0" prefWidth="236.0" promptText="Unit price">
+      <TextField fx:id="txtUnitPrice" layoutX="485.0" layoutY="128.0" onKeyReleased="#txtItemPriceOnKey" prefHeight="25.0" prefWidth="236.0" promptText="Unit price">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></TextField>

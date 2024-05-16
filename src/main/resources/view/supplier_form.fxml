@@ -36,10 +36,10 @@
                 </LinearGradient>
             </textFill>
         </Label>
-        <TextField fx:id="txtSupId" layoutX="255.0" layoutY="77.0" onAction="#itemSearchOnAction" prefHeight="25.0" prefWidth="236.0" promptText="ID" />
-        <TextField fx:id="txtName" layoutX="515.0" layoutY="77.0" prefHeight="25.0" prefWidth="236.0" promptText="Name" />
-        <TextField fx:id="txtDescription" layoutX="519.0" layoutY="126.0" prefHeight="13.0" prefWidth="236.0" promptText="What Abot Supply" />
-        <TextField fx:id="txtSupMobile" layoutX="255.0" layoutY="125.0" prefHeight="25.0" prefWidth="236.0" promptText="Mobile Number" />
+        <TextField fx:id="txtSupId" layoutX="255.0" layoutY="77.0" onAction="#itemSearchOnAction" onKeyReleased="#txtSupIdOnKey" prefHeight="25.0" prefWidth="236.0" promptText="ID" />
+        <TextField fx:id="txtName" layoutX="515.0" layoutY="77.0" onKeyReleased="#txtSupNameOnKey" prefHeight="25.0" prefWidth="236.0" promptText="Name" />
+        <TextField fx:id="txtDescription" layoutX="519.0" layoutY="126.0" onKeyReleased="#txtSupDescriptionOnKey" prefHeight="13.0" prefWidth="236.0" promptText="What Abot Supply" />
+        <TextField fx:id="txtSupMobile" layoutX="255.0" layoutY="125.0" onKeyReleased="#txtSupTeleOnKey" prefHeight="25.0" prefWidth="236.0" promptText="Mobile Number" />
         <JFXButton layoutX="581.0" layoutY="177.0" onAction="#btnAddSupplier" prefHeight="26.0" prefWidth="110.0" style="-fx-background-color: #233C4D;" text="Add Supplier" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="12.0" />

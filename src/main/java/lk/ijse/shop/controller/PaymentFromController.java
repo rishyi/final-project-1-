@@ -9,10 +9,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.shop.Repository.PaymentRepo;
+import lk.ijse.shop.Util.Regex;
 import lk.ijse.shop.model.ItemTm.PaymentTm;
 import lk.ijse.shop.model.Order;
 import lk.ijse.shop.model.Payement;
@@ -100,22 +102,26 @@ public class PaymentFromController {
         Date date = Date.valueOf(txtDate.getText());
         String o_id = txtOrderId.getText();
 
-        Payement payement = new Payement(paymentId, price, date, o_id);
+        if (isValid()) {
+            Payement payement = new Payement(paymentId, price, date, o_id);
 
-        try {
-            boolean isSaved = PaymentRepo.save(payement);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION,"Payment Successfully Added").show();
-                clearFields();
+            try {
+                boolean isSaved = PaymentRepo.save(payement);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Payment Successfully Added").show();
+                    clearFields();
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        int i = Integer.parseInt(netTotal);
-        System.out.println(i);
-        if (i != 0){
-            Stage stage = (Stage) rootNode.getScene().getWindow();
-            stage.close();
+            int i = Integer.parseInt(netTotal);
+            System.out.println(i);
+            if (i != 0) {
+                Stage stage = (Stage) rootNode.getScene().getWindow();
+                stage.close();
+            }
+        }else {
+            new Alert(Alert.AlertType.INFORMATION,"Insert Valid date").show();
         }
     }
 
@@ -190,4 +196,28 @@ public class PaymentFromController {
 
     }
 
+    public void txtPayOrderIdOnKey(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.shop.Util.TextField.ID,txtOrderId);
+    }
+
+    public void txtPayPriceOnKey(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.shop.Util.TextField.PRICE,txtPrice);
+    }
+
+    public void txtPayDateOnKey(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.shop.Util.TextField.DATE,txtDate);
+    }
+
+    public void txtPayIdOnKey(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.shop.Util.TextField.ID,txtOrderId);
+    }
+
+    public boolean isValid(){
+        if (!Regex.setTextColor(lk.ijse.shop.Util.TextField.ID,txtOrderId)) return false;
+        if (!Regex.setTextColor(lk.ijse.shop.Util.TextField.ID,txtPaymentId)) return false;
+        if (!Regex.setTextColor(lk.ijse.shop.Util.TextField.PRICE,txtPrice)) return false;
+        if (!Regex.setTextColor(lk.ijse.shop.Util.TextField.DATE,txtDate)) return false;
+
+        return true;
+    }
 }

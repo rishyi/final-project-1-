@@ -11,10 +11,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.shop.Repository.ItemRepo;
+import lk.ijse.shop.Util.Regex;
 import lk.ijse.shop.model.Item;
 import lk.ijse.shop.model.ItemTm.ItemTm;
 
@@ -112,20 +114,24 @@ public class ItemFormController {
             return;
         }
 
-        Item item = new Item(itemCode, itemName, itemQty, itemDescription, itemUnitPrice);
+        if (isValid()) {
 
-        try {
-            boolean isSaved = ItemRepo.save(item);
-            if (isSaved){
-                new Alert(Alert.AlertType.CONFIRMATION, "Item added successfully").show();
-                clearFields();
+            Item item = new Item(itemCode, itemName, itemQty, itemDescription, itemUnitPrice);
+
+            try {
+                boolean isSaved = ItemRepo.save(item);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Item added successfully").show();
+                    clearFields();
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            } finally {
+                loadAllItems();
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }finally {
-            loadAllItems();
+        }else {
+            new Alert(Alert.AlertType.INFORMATION,"Insert valid data").show();
         }
-
     }
 
     @FXML
@@ -215,5 +221,36 @@ public class ItemFormController {
                 txtUnitPrice.setText(String.valueOf(newSelection.getUnitPrice()));
             }
         });
+    }
+
+    public void txtItemPriceOnKey(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.shop.Util.TextField.PRICE,txtUnitPrice);
+    }
+
+    public void txtItemNameOnKey(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.shop.Util.TextField.NAME,txtName);
+    }
+
+    public void txtItemQtyOnKey(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.shop.Util.TextField.QTY,txtQty);
+    }
+
+    public void txtItemDetailOnKey(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.shop.Util.TextField.DETAILS,txtDescription);
+    }
+
+    public void txtItemCodeOnkey(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.shop.Util.TextField.ID,txtCode);
+    }
+
+    public boolean isValid(){
+        if (!Regex.setTextColor(lk.ijse.shop.Util.TextField.ID,txtCode)) return false;
+        if (!Regex.setTextColor(lk.ijse.shop.Util.TextField.NAME,txtName)) return false;
+        if (!Regex.setTextColor(lk.ijse.shop.Util.TextField.QTY,txtQty)) return false;
+        if (!Regex.setTextColor(lk.ijse.shop.Util.TextField.DETAILS,txtDescription)) return false;
+        if (!Regex.setTextColor(lk.ijse.shop.Util.TextField.PRICE,txtUnitPrice)) return false;
+
+        return true;
+
     }
 }

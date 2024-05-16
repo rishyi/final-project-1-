@@ -9,9 +9,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.shop.Repository.SupplierRepo;
+import lk.ijse.shop.Util.Regex;
 import lk.ijse.shop.model.ItemTm.SupplierTm;
 import lk.ijse.shop.model.Supplier;
 
@@ -97,18 +99,22 @@ public class SupplierFormControll {
             new Alert(Alert.AlertType.INFORMATION,"Supplier Mobile Number Required").show();
         }
 
-        Supplier supplier = new Supplier(supplierId, supplierName, supplierMobile, supplierDescription);
+        if (isValid()) {
+            Supplier supplier = new Supplier(supplierId, supplierName, supplierMobile, supplierDescription);
 
-        try {
-            boolean isSaved = SupplierRepo.save(supplier);
-            if (isSaved){
-                new Alert(Alert.AlertType.CONFIRMATION,"Supplier Added Successfully").show();
-                clearFields();
+            try {
+                boolean isSaved = SupplierRepo.save(supplier);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Supplier Added Successfully").show();
+                    clearFields();
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            } finally {
+                loadAllSupplier();
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }finally {
-            loadAllSupplier();
+        }else {
+            new Alert(Alert.AlertType.INFORMATION,"Insert Valid Data").show();
         }
     }
 
@@ -132,6 +138,7 @@ public class SupplierFormControll {
             boolean isDeleted = SupplierRepo.delete(supId);
             if (isDeleted){
                 new Alert(Alert.AlertType.CONFIRMATION,"Supplier Deleted Successfully").show();
+                clearFields();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
@@ -189,4 +196,28 @@ public class SupplierFormControll {
 
     }
 
+    public void txtSupNameOnKey(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.shop.Util.TextField.NAME,txtName);
+    }
+
+    public void txtSupDescriptionOnKey(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.shop.Util.TextField.DETAILS,txtDescription);
+    }
+
+    public void txtSupTeleOnKey(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.shop.Util.TextField.TELEPHONE,txtSupMobile);
+    }
+
+    public void txtSupIdOnKey(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.shop.Util.TextField.ID,txtSupId);
+    }
+
+    public boolean isValid(){
+        if (!Regex.setTextColor(lk.ijse.shop.Util.TextField.NAME,txtName)) return false;
+        if (!Regex.setTextColor(lk.ijse.shop.Util.TextField.ID,txtSupId)) return false;
+        if (!Regex.setTextColor(lk.ijse.shop.Util.TextField.DETAILS,txtDescription)) return false;
+        if (!Regex.setTextColor(lk.ijse.shop.Util.TextField.TELEPHONE,txtSupMobile)) return false;
+
+        return true;
+    }
 }

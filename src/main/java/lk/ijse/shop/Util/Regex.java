@@ -9,8 +9,30 @@ public class Regex {
         String field = "";
 
         switch(textField){
-            case NAME -> field = "([a-zA-Z\\s]+){3,}";
-            case ADDRESS ->  field =  "^([A-z0-9]|[-/,. @+]|\\\\s){4,}$";
+            case NAME:
+                field = "[A-z|\\\\s]{3,}$";
+                break;
+            case ADDRESS:
+                field =  "[A-Za-z0-9'\\.\\-\\s\\,]";
+                break;
+            case ID:
+                field = "^([A-Z][0-9]{3})$";
+                break;
+            case TELEPHONE:
+                field = "^[0-9]{10}$";
+                break;
+            case QTY:
+                field = "[0-9]+$";
+                break;
+            case DATE:
+                field = "^\\d{4}\\-(0?[1-9]|1[012])\\-(0?[1-9]|[12][0-9]|3[01])$";
+                break;
+            case DETAILS:
+                field = "[a-zA-Z_0-9]+";
+                break;
+            case PRICE:
+                field = "[0-9]+$";
+                break;
         }
         Pattern pattern = Pattern.compile(field);
 

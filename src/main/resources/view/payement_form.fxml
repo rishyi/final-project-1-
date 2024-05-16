@@ -36,9 +36,9 @@
                 </LinearGradient>
             </textFill>
         </Label>
-        <TextField fx:id="txtPaymentId" layoutX="237.0" layoutY="74.0" onAction="#itemSearchOnAction" prefHeight="25.0" prefWidth="236.0" promptText="Payment ID" />
-        <TextField fx:id="txtPrice" layoutX="497.0" layoutY="74.0" prefHeight="25.0" prefWidth="236.0" promptText="Payment Amount" />
-        <TextField fx:id="txtDate" layoutX="238.0" layoutY="126.0" prefHeight="25.0" prefWidth="236.0" promptText="Payment Date" />
+        <TextField fx:id="txtPaymentId" layoutX="237.0" layoutY="74.0" onAction="#itemSearchOnAction" onKeyReleased="#txtPayIdOnKey" prefHeight="25.0" prefWidth="236.0" promptText="Payment ID" />
+        <TextField fx:id="txtPrice" layoutX="497.0" layoutY="74.0" onKeyReleased="#txtPayPriceOnKey" prefHeight="25.0" prefWidth="236.0" promptText="Payment Amount" />
+        <TextField fx:id="txtDate" layoutX="238.0" layoutY="126.0" onKeyReleased="#txtPayDateOnKey" prefHeight="25.0" prefWidth="236.0" promptText="Payment Date" />
         <JFXButton layoutX="581.0" layoutY="177.0" onAction="#btnAddPayment" prefHeight="26.0" prefWidth="119.0" style="-fx-background-color: #233C4D;" text="Add Payment" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="12.0" />
@@ -158,7 +158,7 @@
                 </ImageView>
             </graphic>
         </JFXButton>
-        <TextField fx:id="txtOrderId" layoutX="497.0" layoutY="126.0" prefHeight="25.0" prefWidth="236.0" promptText="Order ID" />
+        <TextField fx:id="txtOrderId" layoutX="497.0" layoutY="126.0" onKeyReleased="#txtPayOrderIdOnKey" prefHeight="25.0" prefWidth="236.0" promptText="Order ID" />
         <Label layoutX="497.0" layoutY="108.0" text="Order ID">
             <font>
                 <Font name="System Bold" size="12.0" />
