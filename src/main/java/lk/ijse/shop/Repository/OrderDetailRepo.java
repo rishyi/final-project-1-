@@ -11,7 +11,6 @@ public class OrderDetailRepo {
     public static boolean save(List<OrderDetail> odList) throws SQLException {
         for (OrderDetail od : odList) {
             boolean isSaved = save(od);
-            System.out.println("orderDetailSve"+isSaved);
             if (!isSaved) {
                 return false;
             }

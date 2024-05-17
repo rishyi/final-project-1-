@@ -258,7 +258,6 @@ public class PlaceOrderFormController {
     @SneakyThrows
     @FXML
     void btnPlaceOrderAction(ActionEvent event) {
-
         String orderID = lblOrderID.getText();
         String  orderDetails = lblDetails.getText();
         Date date = Date.valueOf(lblOrderDate.getText());
