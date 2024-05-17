@@ -28,9 +28,9 @@ public class SupplierRepo {
         PreparedStatement ps = DbConnection.getInstance().getConnection().prepareStatement(sql);
 
         ps.setObject(1,supplier.getName());
-        ps.setObject(2,supplier.getName());
-        ps.setObject(3,supplier.getTelephone());
-        ps.setObject(4,supplier.getDescription());
+        ps.setObject(2,supplier.getTelephone());
+        ps.setObject(3,supplier.getDescription());
+        ps.setObject(4,supplier.getId());
 
         return ps.executeUpdate() > 0;
     }

@@ -15,35 +15,32 @@ public class RepotFormController {
     public void btnPrintAllOrders(ActionEvent actionEvent) throws JRException, SQLException, ClassNotFoundException {
         JasperDesign jasperDesign = JRXmlLoader.load(getClass().getResourceAsStream("/reports/orders_report.jrxml"));
         JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
-
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/glitchbusters","root","satan666");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/glitchbusters","root","zombi123");
         JRDesignQuery updateQuery = new JRDesignQuery();
         jasperDesign.setQuery(updateQuery);
 
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,null,connection);
         JasperViewer.viewReport(jasperPrint,false);
-
     }
 
     public void btnPrintAllcustomers(ActionEvent actionEvent) throws JRException, ClassNotFoundException, SQLException {
         JasperDesign jasperDesign = JRXmlLoader.load(getClass().getResourceAsStream("/reports/customer_report.jrxml"));
         JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/glitchbusters","root","satan666");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/glitchbusters", "root", "zombi123");
         JRDesignQuery updateQuery = new JRDesignQuery();
         jasperDesign.setQuery(updateQuery);
 
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,null,connection);
-        JasperViewer.viewReport(jasperPrint,false);
-
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, connection);
+        JasperViewer.viewReport(jasperPrint, false);
     }
 
     public void btnPrintAllItems(ActionEvent actionEvent) throws JRException, ClassNotFoundException, SQLException {
         JasperDesign jasperDesign = JRXmlLoader.load(getClass().getResourceAsStream("/reports/items_report.jrxml"));
         JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/glitchbusters","root","satan666");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/glitchbusters","root","zombi123");
         JRDesignQuery updateQuery = new JRDesignQuery();
         jasperDesign.setQuery(updateQuery);
 

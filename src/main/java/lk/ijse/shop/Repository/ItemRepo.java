@@ -109,8 +109,7 @@ public class ItemRepo {
         return itemIds;
     }
 
-    public static boolean
-    update(List<OrderDetail> odList) throws SQLException {
+    public static boolean update(List<OrderDetail> odList) throws SQLException {
         for (OrderDetail od : odList){
             boolean isUpdateQty = updateQty(od.getItemID(),od.getQty());
             if(!isUpdateQty){
