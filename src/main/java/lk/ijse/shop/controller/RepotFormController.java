@@ -16,7 +16,7 @@ public class RepotFormController {
         JasperDesign jasperDesign = JRXmlLoader.load(getClass().getResourceAsStream("/reports/order_details.jrxml"));
         JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/glitchbusters","root","satan666");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/glitchbusters","root","zombi123");
         JRDesignQuery updateQuery = new JRDesignQuery();
         jasperDesign.setQuery(updateQuery);
 
@@ -28,7 +28,7 @@ public class RepotFormController {
         JasperDesign jasperDesign = JRXmlLoader.load(getClass().getResourceAsStream("/reports/customer_report.jrxml"));
         JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/glitchbusters", "root", "satan666");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/glitchbusters", "root", "zombi123");
         JRDesignQuery updateQuery = new JRDesignQuery();
         jasperDesign.setQuery(updateQuery);
 
@@ -40,7 +40,7 @@ public class RepotFormController {
         JasperDesign jasperDesign = JRXmlLoader.load(getClass().getResourceAsStream("/reports/items_report.jrxml"));
         JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/glitchbusters","root","satan666");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/glitchbusters","root","zombi123");
         JRDesignQuery updateQuery = new JRDesignQuery();
         jasperDesign.setQuery(updateQuery);
 
